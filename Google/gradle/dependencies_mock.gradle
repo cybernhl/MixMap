@@ -1,0 +1,14 @@
+ext {
+    mockitoVersion = [
+            allversion : '1.10.19',
+            coreversion: '2.28.2'
+    ]
+
+    MapboxdependenciesList = [
+            mockito_all          : "org.mockito:mockito-all:${mockitoVersion.allversion}",
+            mockito_core         : "org.mockito:mockito-core:${mockitoVersion.coreversion}",
+            mockito_inline       : "org.mockito:mockito-inline:${mockitoVersion.coreversion}",
+            mockito_Android      : "org.mockito:mockito-android:${mockitoVersion.coreversion}",
+            mockito_junit_jupiter: "org.mockito:mockito-junit-jupiter:${mockitoVersion.coreversion}"
+    ]
+}

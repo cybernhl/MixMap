@@ -1,0 +1,22 @@
+ext {
+    SquarevicesVersion = [
+            okthttp3  : '3.11.0',
+            picasso   : '2.5.2',
+            retrofit  : '2.4.0',
+            leakCanary: '1.5.4',
+            timber    : '4.7.1',
+    ]
+    SquaredependenciesList = [
+            okhttp3              : "com.squareup.okhttp3:okhttp:${SquarevicesVersion.okhttp3}",
+            okhttp3Logging       : "com.squareup.okhttp3:logging-interceptor:${SquarevicesVersion.okhttp3}",
+            okhttp3Mockwebserver : "com.squareup.okhttp3:mockwebserver:${SquarevicesVersion.okhttp3}",
+            retrofit             : "com.squareup.retrofit2:retrofit:${SquarevicesVersion.retrofit}",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${SquarevicesVersion.retrofit}",
+            retrofit2scalars     : "com.squareup.retrofit2:converter-scalars:${SquarevicesVersion.retrofit}",
+            picasso              : "com.squareup.picasso:picasso:${SquarevicesVersion.picasso}",
+
+            timber               : "com.jakewharton.timber:timber:${SquarevicesVersion.timber}",
+            leakCanaryDebug      : "com.squareup.leakcanary:leakcanary-android:${SquarevicesVersion.leakCanary}",
+            leakCanaryRelese     : "com.squareup.leakcanary:leakcanary-android-no-op:${SquarevicesVersion.leakCanary}"
+    ]
+}

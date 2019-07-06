@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+    lintOptions {
+        abortOnError false
+        disable "ResourceType"
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+    }
+
+    dexOptions {
+        maxProcessCount 8
+        javaMaxHeapSize "4g"
+        preDexLibraries true
+    }
+    defaultConfig {
+        applicationId "com.example.mapwithmarker"
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dependenciesSupportList.appcompat
+    implementation dependenciesGooglePlayList.play_services
+    implementation dependenciesGooglePlayList.maps
+}
+apply from: "${rootDir}/gradle/dependencies_google.gradle"

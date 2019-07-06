@@ -1,0 +1,95 @@
+ext {
+    pluginVersion = [
+            gradle             : '3.4.1',
+            kotlin             : '1.3.40',
+            checkstyle         : '8.11.0',
+            pmd                : '5.8.1',
+            firebase           : '1.1.1',
+            gradlePlayPublisher: '1.2.2',
+            errorprone         : '0.0.14',
+            coveralls          : '2.8.1',
+            spotbugs           : '1.3',
+            jacoco             : '0.13.0',
+            dokka              : '0.9.17',
+            sonarqube          : '2.5',
+            buildConfig        : '1.1.8',
+            dependencyUpdates  : '0.20.0',
+//            dependencyGraph    : '0.5.0'
+//            dependencyGraph    : '0.6.0-SNAPSHOT'
+            dependencyGraph    : '0.3.0'
+    ]
+
+    dependencieslibraryversion = [
+            assertJ               : "3.11.1",
+            // Other
+            segmentAnalytics      : '2.0.0',
+            materialStyleDialog   : '2.1',
+            cuttaGifView          : '1.1',
+            baseFab               : '1.10.1',
+            materialDialogsCommons: '0.9.6.0',
+            robolectric           : '4.1',
+            commonsIO             : '2.6',
+
+            spoonRunner           : '1.6.2',
+            hamcrest              : '2.0.0.0',
+            errorprone            : '2.3.1',
+            butterknife           : '8.8.1'
+    ]
+
+
+    pluginDependencies = [
+            gradle           : "com.android.tools.build:gradle:${pluginVersion.gradle}",
+            checkstyle       : "com.puppycrawl.tools:checkstyle:${pluginVersion.checkstyle}",
+            firebase         : "com.google.firebase:firebase-plugins:${pluginVersion.firebase}",
+            playPublisher    : "com.github.triplet.gradle:play-publisher:${pluginVersion.gradlePlayPublisher}",
+            kotlin           : "org.jetbrains.kotlin:kotlin-gradle-plugin:${pluginVersion.kotlin}",
+            spotbugs         : "gradle.plugin.com.github.spotbugs:gradlePlugin:${pluginVersion.spotbugs}",
+            coveralls        : "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${pluginVersion.coveralls}",
+            errorprone       : "net.ltgt.gradle:gradle-errorprone-plugin:${pluginVersion.errorprone}",
+            dependencyUpdates: "com.github.ben-manes:gradle-versions-plugin:${pluginVersion.dependencyUpdates}",
+            jacoco           : "com.github.ben-manes:gradle-versions-plugin:${pluginVersion.jacoco}",
+            dependencyGraph  : "com.vanniktech:gradle-dependency-graph-generator-plugin:${pluginVersion.dependencyGraph}",
+            sonarqube        : "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${pluginVersion.sonarqube}",
+            buildConfig      : "gradle.plugin.de.fuerstenau:BuildConfigPlugin:${pluginVersion.buildConfig}",
+            dokka            : "org.jetbrains.dokka:dokka-android-gradle-plugin:${pluginVersion.dokka}"
+    ]
+
+    dependenciesgeneralList = [
+//            // gson
+gson                        : 'com.google.code.gson:gson:2.8.5',
+//            // unit test
+junit                       : 'junit:junit:4.12',//
+//            // AutoValue
+autoValue_google            : 'com.google.auto.value:auto-value:1.6.5',
+autoValue_annotations_google: 'com.google.auto.value:auto-value-annotations:1.6.5'
+    ]
+
+    dependenciesList = [
+            //            // AutoValue
+            autoValueGson_ryanharter             : 'com.ryanharter.auto.value:auto-value-gson:1.0.0',
+            autoValueGson_runtime_ryanharter     : 'com.ryanharter.auto.value:auto-value-gson-runtime:1.0.0',
+            autoValueGson_Annotations_ryanharter : 'com.ryanharter.auto.value:auto-value-gson-annotations:0.8.0',
+            autoValueMoshi_ryanharter            : 'com.ryanharter.auto.value:auto-value-moshi:0.4.5',
+            autoValueMoshi_Annotations_ryanharter: 'com.ryanharter.auto.value:auto-value-moshi-annotations:0.4.5',
+            autoValuesParcel_ryanharter          : 'com.ryanharter.auto.value:auto-value-parcel:0.2.6',
+            autoValuesParcelAdapter_ryanharter   : 'com.ryanharter.auto.value:auto-value-parcel-adapter:0.2.6',
+
+            segmentAnalytics      : 'com.segment.analytics.java:analytics:2.0.0',
+            materialStyleDialog   : 'com.github.javiersantos:MaterialStyledDialogs:2.1',
+            cuttaGifView          : 'com.github.Cutta:GifView:1.1',
+            baseFab               : 'com.getbase:floatingactionbutton:1.10.1',
+            materialDialogsCommons: 'com.afollestad.material-dialogs:commons:0.9.6.0',
+
+            spoonClient_Squareup       : 'com.squareup.spoon:spoon-client:1.7.1',
+
+            robolectric           : "org.robolectric:robolectric:${dependencieslibraryversion.robolectric}",
+            commonsIO             : "commons-io:commons-io:${dependencieslibraryversion.commonsIO}",
+            assertJ               : "org.assertj:assertj-core:${dependencieslibraryversion.assertJ}",
+            hamcrest              : "org.hamcrest:hamcrest-junit:${dependencieslibraryversion.hamcrest}",
+            hamcrestJunit         : "org.hamcrest:hamcrest-junit:${dependencieslibraryversion.hamcrest}",
+            // butterknife
+            butterKnife           : "com.jakewharton:butterknife:${dependencieslibraryversion.butterknife}",
+            butterKnifeProcessor  : "com.jakewharton:butterknife-compiler:${dependencieslibraryversion.butterknife}",
+            errorprone            : "com.google.errorprone:error_prone_core:${dependencieslibraryversion.errorprone}"
+    ]
+}

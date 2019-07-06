@@ -1,0 +1,61 @@
+ext {
+    KotlinDSLVersion = [
+            allversion : '1.10.19',
+            coreversion: '2.28.2'
+    ]
+
+    KotlinDSLdependenciesList = [
+            anko        : 'org.jetbrains.anko:anko:0.10.4',
+            anko_common: 'org.jetbrains.anko:anko-common:0.10.4',
+            anko_commons: 'org.jetbrains.anko:anko-commons:0.10.5',
+            anko_sdk15: 'org.jetbrains.anko:anko-sdk15:0.10.8',
+            anko_appcompat_v7: 'org.jetbrains.anko:anko-appcompat-v7:0.10.7',
+            anko_coroutines: 'org.jetbrains.anko:anko-coroutines:0.10.5',
+            anko_design: 'org.jetbrains.anko:anko-design:0.10.5',
+            anko_support_v4: 'org.jetbrains.anko:anko-support-v4:0.10.5',
+            anko_sdk25: 'org.jetbrains.anko:anko-sdk25:0.10.7',
+            anko_recyclerview_v7: 'org.jetbrains.anko:anko-recyclerview-v7:0.10.5',
+            anko_sqlite: 'org.jetbrains.anko:anko-sqlite:0.10.4',
+            anko_support_v4_commons: 'org.jetbrains.anko:anko-support-v4-commons:0.10.4',
+            anko_commons_base: 'org.jetbrains.anko:commons-base:0.10.7',
+            anko_platform_base: 'org.jetbrains.anko:platform-base:0.10.8',
+            anko_appcompat_v7_commons: 'org.jetbrains.anko:anko-appcompat-v7-commons:0.10.7',
+            anko_sdk25_coroutines: 'org.jetbrains.anko:anko-sdk25-coroutines:0.10.4',
+            anko_constraint_layout: 'org.jetbrains.anko:anko-constraint-layout:0.10.4',
+            anko_recyclerview_v7_coroutines: 'org.jetbrains.anko:anko-recyclerview-v7-coroutines:0.10.5',
+            anko_cardview_v7: 'org.jetbrains.anko:anko-cardview-v7:0.10.4',
+            anko_appcompat_v7_coroutines: 'org.jetbrains.anko:anko-appcompat-v7-coroutines:0.10.4',
+            anko_support_v4_common: 'org.jetbrains.anko:anko-support-v4-common:0.10.0-beta-2',
+            anko_appcompat_v7_common: 'org.jetbrains.anko:anko-appcompat-v7-common:0.10.0-beta-2',
+
+            anko_design_coroutines: 'org.jetbrains.anko:anko-design-coroutines:0.10.4',
+            anko_sdk23: 'org.jetbrains.anko:anko-sdk23:0.9',
+            anko_sdk21_coroutines: 'org.jetbrains.anko:anko-sdk21-coroutines:0.10.8',
+
+            anko_appcompatV7_base: 'org.jetbrains.anko:appcompatV7-base:0.10.8',
+            anko_sdk27: 'org.jetbrains.anko:anko-sdk27:0.10.8',
+            anko_sqlite_base: 'org.jetbrains.anko:sqlite-base:0.10.8',
+            anko_gridlayout_v7: 'org.jetbrains.anko:anko-gridlayout-v7:0.9',
+
+            anko_sdk27_coroutines: 'org.jetbrains.anko:anko-sdk27-coroutines:0.10.8',
+            anko_constraint_layout_base: 'org.jetbrains.anko:constraint-layout-base:0.10.8',
+            anko_percent: 'org.jetbrains.anko:anko-percent:0.10.0',
+            anko_design_base: 'org.jetbrains.anko:design-base:0.10.8',
+            anko_sdk15_listeners: 'org.jetbrains.anko:anko-sdk15-listeners:0.10.4',
+            anko_supportV4_base: 'org.jetbrains.anko:supportV4-base:0.10.8',
+            anko_sdk27_listeners: 'org.jetbrains.anko:anko-sdk27-listeners:0.10.8',
+            anko_recyclerview_v7_listeners: 'org.jetbrains.anko:anko-recyclerview-v7-listeners:0.10.8',
+            anko_sdk25_listeners: 'org.jetbrains.anko:anko-sdk25-listeners:0.10.8',
+            anko_sdk19: 'org.jetbrains.anko:anko-sdk19:0.10.4',
+            anko_sdk21: 'org.jetbrains.anko:anko-sdk21:0.9-beta1',
+            anko_sdk23_coroutines: 'org.jetbrains.anko:anko-sdk23-coroutines:0.10.8',
+            anko_sdk23_listeners: 'org.jetbrains.anko:anko-sdk23-listeners:0.10.8',
+            anko_stubs: 'org.jetbrains.anko:anko-stubs:0.9',
+            anko_design_listeners: 'org.jetbrains.anko:anko-design-listeners:0.10.8',
+            anko_sdk19_listeners: 'org.jetbrains.anko:anko-sdk19-listeners:0.10.8',
+            anko_appcompat_v7_listeners: 'org.jetbrains.anko:anko-appcompat-v7-listeners:0.10.3',
+            anko_sdk15_coroutines: 'org.jetbrains.anko:anko-sdk15-coroutines:0.10.3',
+            anko_sdk19_coroutines: 'org.jetbrains.anko:anko-sdk19-coroutines:0.10.4',
+            anko_sdk21_listeners: 'org.jetbrains.anko:anko-sdk21-listeners:0.10.8'
+    ]
+}

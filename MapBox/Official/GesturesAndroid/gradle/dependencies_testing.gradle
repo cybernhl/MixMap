@@ -1,0 +1,101 @@
+ext {
+    //Ref : https://developers.google.com/android/guides/releases
+    //https://mvnrepository.com/artifact/com.google.android.gms/play-services-maps
+    //Ref : 17.0.0 use AndroidX !!!
+    googlePlayservicesVersion = [
+            Supportversion      : '16.0.0',
+            Supportextraversion : '18.0.0',
+            AndroidXversion     : '17.0.0',
+            AndroidXextraversion: '18.0.0'
+    ]
+
+    FirebaseVersion = [
+            firebaseCrash                : '16.2.1',
+            admob                        : '18.0.0',
+            analytics                    : '17.0.0',
+            appindexing                  : '19.0.0',
+            authentication               : '18.0.0',
+            firestore                    : '20.1.0',
+            functions_for_firebase_client: '18.0.0',
+            messaging                    : '19.0.1',
+            cloud_storage                : '18.0.0',
+            crashlytics                  : '2.10.1',
+            dynamic_links                : '18.0.0',
+            In_App_Messaging             : '18.0.1',
+            In_App_Messaging_Display     : '18.0.1',
+            vision                       : '21.0.0',
+            image_labeling_model         : '18.0.0',
+            Face_Detection               : '18.0.0',
+            Detection_and_Tracking       : '17.0.0',
+            Natural_Language             : '20.0.0',
+            Language_Identification      : '20.0.0',
+            Translate                    : '20.0.0',
+            Smart_Reply                  : '20.0.0',
+            Custom_Model                 : '20.0.0',
+            AutoML_Vision_Edge           : '17.0.0',
+            performance_Monitoring       : '18.0.1',
+            Realtime_Database            : '18.0.0',
+            Remote_Config                : '18.0.0'
+    ]
+
+    dependenciesGooglePlaytList = [
+            // play services
+            play_services                    : 'com.google.android.gms:play-services:12.0.1',
+            ads_identifier                   : "com.google.android.gms:play-services-ads-identifier:${googlePlayservicesVersion.Supportversion}",
+            basement                         : "com.google.android.gms:play-services-basement:${googlePlayservicesVersion.Supportversion}",
+            google_plus                      : "com.google.android.gms:play-services-plus:${googlePlayservicesVersion.Supportversion}",
+            account_login                    : "com.google.android.gms:play-services-auth:${googlePlayservicesVersion.Supportversion}",
+            action_base_client               : "com.google.android.gms:play-services-base:${googlePlayservicesVersion.Supportversion}",
+            sign_in                          : "com.google.android.gms:play-services-identity:${googlePlayservicesVersion.Supportversion}",
+            analytics                        : "com.google.android.gms:play-services-analytics:${googlePlayservicesVersion.Supportversion}",
+            awareness                        : "com.google.android.gms:play-services-awareness:${googlePlayservicesVersion.Supportversion}",
+            cast                             : "com.google.android.gms:play-services-cast:${googlePlayservicesVersion.Supportversion}",
+            gcm                              : "com.google.android.gms:play-services-gcm:${googlePlayservicesVersion.Supportversion}",
+            drive                            : "com.google.android.gms:play-services-drive:${googlePlayservicesVersion.Supportversion}",
+            fit                              : "com.google.android.gms:play-services-fitness:${googlePlayservicesVersion.Supportversion}",
+            maps                             : "com.google.android.gms:play-services-maps:${googlePlayservicesVersion.Supportversion}",
+            location_and_activity_recognition: "com.google.android.gms:play-services-location:${googlePlayservicesVersion.Supportversion}",
+            ads                              : "com.google.android.gms:play-services-ads:${googlePlayservicesVersion.extraversion}",
+            vision                           : "com.google.android.gms:play-services-vision:${googlePlayservicesVersion.Supportversion}",
+            nearby                           : "com.google.android.gms:play-services-nearby:${googlePlayservicesVersion.Supportversion}",
+            panoramaViewer                   : "com.google.android.gms:play-services-panorama:${googlePlayservicesVersion.Supportversion}",
+            game                             : "com.google.android.gms:play-services-games:${googlePlayservicesVersion.extraversion}",
+            safetyNet                        : "com.google.android.gms:play-services-safetynet:${googlePlayservicesVersion.Supportversion}",
+            pay                              : "com.google.android.gms:play-services-wallet:${googlePlayservicesVersion.Supportversion}",
+            tasks                            : "com.google.android.gms:play-services-tasks:${googlePlayservicesVersion.Supportversion}",
+            places                           : "com.google.android.gms:play-services-places:${googlePlayservicesVersion.Supportversion}",
+            tagManager                       : "com.google.android.gms:play-services-tagmanager:${googlePlayservicesVersion.Supportversion}",
+            measurement                      : "com.google.android.gms:play-services-measurement:${googlePlayservicesVersion.Supportversion}",
+            wear                             : "com.google.android.gms:play-services-wearable:${googlePlayservicesVersion.Supportversion}"
+    ]
+
+    dependenciesFirebaseList = [
+            // Firebase
+            admob                        : "com.google.firebase:firebase-ads:${FirebaseVersion.admob}",
+            analytics                    : "com.google.firebase:firebase-core:${FirebaseVersion.analytics}",
+            appindexing                  : "com.google.firebase:firebase-appindexing:${FirebaseVersion.appindexing}",
+            authentication               : "com.google.firebase:firebase-auth:${FirebaseVersion.authentication}",
+            firestore                    : "com.google.firebase:firebase-firestore:${FirebaseVersion.firestore}",
+            functions_for_firebase_client: "com.google.firebase:firebase-functions:${FirebaseVersion.functions_for_firebase_client}",
+            messaging                    : "com.google.firebase:firebase-messaging:${FirebaseVersion.messaging}",
+            cloud_storage                : "com.google.firebase:firebase-storage:${FirebaseVersion.cloud_storage}",
+            firebaseCrash                : "com.google.firebase:firebase-crash:${FirebaseVersion.firebaseCrash}",
+            crashlytics                  : "com.crashlytics.sdk.android:crashlytics:${FirebaseVersion.crashlytics}",
+            dynamic_links                : "com.google.firebase:firebase-dynamic-links:${FirebaseVersion.dynamic_links}",
+            In_App_Messaging             : "com.google.firebase:firebase-inappmessaging:${FirebaseVersion.In_App_Messaging}",
+            In_App_Messaging_Display     : "com.google.firebase:firebase-inappmessaging-display:${FirebaseVersion.In_App_Messaging_Display}",
+            vision                       : "com.google.firebase:firebase-ml-vision:${FirebaseVersion.vision}",
+            image_labeling_model         : "com.google.firebase:firebase-ml-vision-image-label-model:${FirebaseVersion.image_labeling_model}",
+            Face_Detection               : "com.google.firebase:firebase-ml-vision-face-model:${FirebaseVersion.Face_Detection}",
+            Detection_and_Tracking       : "com.google.firebase:firebase-ml-vision-object-detection-model:${FirebaseVersion.Detection_and_Tracking}",
+            Natural_Language             : "com.google.firebase:firebase-ml-natural-language:${FirebaseVersion.Natural_Language}",
+            Language_Identification      : "com.google.firebase:firebase-ml-natural-language-language-id-model:${FirebaseVersion.Language_Identification}",
+            Translate                    : "com.google.firebase:firebase-ml-natural-language-translate-model:${FirebaseVersion.Translate}",
+            Smart_Reply                  : "com.google.firebase:firebase-ml-natural-language-smart-reply-model:${FirebaseVersion.Smart_Reply}",
+            Custom_Model                 : "com.google.firebase:firebase-ml-model-interpreter:${FirebaseVersion.Custom_Model}",
+            AutoML_Vision_Edge           : "com.google.firebase:firebase-ml-vision-automl:${FirebaseVersion.AutoML_Vision_Edge}",
+            performance_Monitoring       : "com.google.firebase:firebase-perf:${FirebaseVersion.performance_Monitoring}",
+            Realtime_Database            : "com.google.firebase:firebase-database:${FirebaseVersion.Realtime_Database}",
+            Remote_Config                : "com.google.firebase:firebase-config:${FirebaseVersion.Remote_Config}"
+    ]
+}

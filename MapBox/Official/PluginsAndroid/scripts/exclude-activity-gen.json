@@ -1,0 +1,13 @@
+[
+  "LocationLayerFragmentActivity",
+  "OfflineDownloadActivity",
+  "OfflineRegionListActivity",
+  "OfflineUiComponentsActivity",
+  "AutocompleteFragmentActivity",
+  "PickerLauncherActivity",
+  "CompassListenerActivity",
+  "LocationLayerFragmentActivity",
+  "LocationLayerMapChangeActivity",
+  "LocationLayerModesActivity",
+  "ManualLocationUpdatesActivity"
+]

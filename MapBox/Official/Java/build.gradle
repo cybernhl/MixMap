@@ -1,0 +1,103 @@
+buildscript {
+  apply from: "${rootDir}/gradle/dependencies.gradle"
+
+  repositories {
+    maven { url 'https://plugins.gradle.org/m2' }
+    google()
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+
+    dependencies.create(pluginDependencies.checkstyle) {
+      transitive = false
+    }
+    classpath 'com.android.tools.build:gradle:3.3.0'
+    classpath pluginDependencies.errorprone
+    classpath pluginDependencies.sonarqube
+    classpath pluginDependencies.buildConfig
+    classpath pluginDependencies.jacoco
+  }
+}
+
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+  options.compilerArgs += ['-Xlint:all', '-Xlint:unchecked', 'autovaluegson.defaultCollectionsToEmpty:true']
+}
+
+allprojects {
+  repositories {
+    maven { url 'https://plugins.gradle.org/m2' }
+    google()
+    mavenCentral()
+    jcenter()
+  }
+  group = GROUP
+  version = VERSION_NAME
+}
+
+subprojects {
+  apply from: "${rootDir}/gradle/dependencies.gradle"
+  apply plugin: 'java'
+  apply plugin: 'idea'
+  apply plugin: 'net.ltgt.errorprone'
+
+  // Fixes issue with test resources not being found inside Intellij
+  idea {
+    module {
+      testOutputDir = file('build/resources/test')
+    }
+  }
+
+  sourceCompatibility = JavaVersion.VERSION_1_7
+  targetCompatibility = JavaVersion.VERSION_1_7
+
+  dependencies {
+
+    errorprone dependenciesList.errorprone
+
+    // Test Dependencies
+    testCompile dependenciesList.junit
+    testCompile dependenciesList.hamcrestJunit
+    testCompile dependenciesList.mockito
+  }
+}
+
+def TESTABLE_MODULES = ["services",
+                      "services-core",
+                      "services-directions",
+                      "services-geocoding",
+                      "services-geojson",
+                      "services-matching",
+                      "services-matrix",
+                      "services-optimization",
+                      "services-route-tiles",
+                      "services-speech",
+                      "services-staticmap",
+                      "services-tilequery",
+                      "services-turf"]
+
+def RELEASE_MODULES = ["services",
+                       "services-core",
+                       "services-geojson",
+                       "services-turf"]
+
+subprojects { subproject ->
+  if (TESTABLE_MODULES.contains(subproject.name)) {
+      subproject.apply plugin: "com.vanniktech.android.junit.jacoco"
+      subproject.apply from: "${rootDir}/gradle/jacoco.gradle"
+      subproject.apply from: "${rootDir}/gradle/checkstyle.gradle"
+  }
+
+  if (RELEASE_MODULES.contains(subproject.name)) {
+    subproject.apply from: "${rootDir}/gradle/mvn-push.gradle"
+    subproject.apply from: "${rootDir}/gradle/dependencies-graph.gradle"
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+apply from: "${rootDir}/gradle/sonarqube.gradle"

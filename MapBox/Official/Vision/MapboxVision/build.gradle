@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: "$project.rootDir/gradle/script-git-version.gradle"
+apply from: "$project.rootDir/gradle/gradle-dependencies-graph.gradle"
+
+def envVarOrLocalProperty(String name) {
+    if (System.getenv(name) != null) {
+        return System.getenv(name).toBoolean()
+    }
+
+    Properties properties = new Properties()
+    def file = project.rootProject.file('local.properties')
+    if (file.exists()) {
+        properties.load(file.newDataInputStream())
+        def isLocalDevelopment = properties.getProperty(name)
+        if (isLocalDevelopment != null) {
+            return isLocalDevelopment.toBoolean()
+        }
+    }
+    return false
+}
+
+if (envVarOrLocalProperty('IS_LOCAL_DEVELOPMENT')) {
+    apply plugin: 'org.jetbrains.dokka-android'
+
+    dokka {
+        moduleName = 'mapbox-vision'
+        outputDirectory = "$buildDir/javadoc"
+        outputFormat = 'javadoc'
+    }
+}
+
+if (file("${rootDir}/gradle/versions.gradle").exists()) {
+    apply from: "${rootDir}/gradle/versions.gradle"
+}
+if (file("${rootDir}/gradle/maven-settings.gradle").exists()) {
+    apply from: "${rootDir}/gradle/maven-settings.gradle"
+}
+if (file("${rootDir}/gradle/bintray.gradle").exists()) {
+    apply from: "${rootDir}/gradle/bintray.gradle"
+}
+
+android {
+    compileSdkVersion androidVersions.compileSdkVersion
+    buildToolsVersion androidVersions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+        versionCode gitVersionCode
+        versionName gitVersionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation dependenciesList.kotlin
+//    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation dependenciesList.retrofit
+//    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation dependenciesList.retrofit2scalars
+    if (envVarOrLocalProperty('BUILD_CORE_FROM_SOURCE')) {
+        api project(path: ':VisionCore')
+    } else {
+//        implementation "com.mapbox.vision:mapbox-android-vision-core:$vision_core"
+        implementation dependenciesList.retrofit
+    }
+
+//    api "com.mapbox.mapboxsdk:mapbox-android-core:$mapbox_core"
+//    api "com.mapbox.mapboxsdk:mapbox-android-telemetry:$mapbox_telemetry"
+    api dependenciesList.mapbox_core
+    api dependenciesList.mapboxEvents
+
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}

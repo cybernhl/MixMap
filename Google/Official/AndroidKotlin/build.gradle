@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+    lintOptions {
+        abortOnError false
+        disable "ResourceType"
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+    }
+
+    dexOptions {
+        maxProcessCount 8
+        javaMaxHeapSize "4g"
+        preDexLibraries true
+    }
+    defaultConfig {
+        applicationId "com.example.kotlindemos"
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation KotlinDependenciesList.std_jdk8
+    implementation dependenciesSupportList.constraintlayout
+    implementation dependenciesSupportList.appcompat
+    // Needed for the LiteListDemo
+    // This dependency is needed to use RecyclerView, for the LiteListDemoActivity
+    implementation dependenciesSupportList.recyclerview
+    // CardView is used in the LiteListDemoActivity
+    implementation dependenciesSupportList.cardview
+    // Below is the Google Play Services dependency required for using the Google Maps Android API
+    implementation dependenciesGooglePlayList.maps
+    // Below is used to run the easypermissions library to manage location permissions
+    // EasyPermissions is needed to help us request for permission to access location
+    implementation 'pub.devrel:easypermissions:1.1.1'
+}
+apply from: "${rootDir}/gradle/dependencies_google.gradle"

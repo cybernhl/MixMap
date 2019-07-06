@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+//apply from: "$project.rootDir/gradle/script-git-version.gradle"
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+    defaultConfig {
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion
+//        resValue "string", "access_token", "sk.eyJ1Ijoic29ubnQiLCJhIjoiY2loMHU5bjJjMHhnN3gxbTBueXpwbnplayJ9.JMKpxDV2NZjWK3e2EeFmSA"
+        resValue "string", "access_token", "pk.eyJ1IjoibmVvY2N0aXBzIiwiYSI6ImNqcmxxMzAybTBiNTIzeXQyaGwzdHJtMTQifQ.q9bHT4Sxv9ueoUs1mpPVJw"
+        resValue "string", "mapbox_auth_flow_secret", "YOUR_MAPBOX_AUTH_FLOW_SECRET_GOES_HERE"
+        resValue "string", "mapbox_segment_write_key", "THE_SEGMENT_API_WRITE_KEY_GOES_HERE"
+        resValue "string", "mapbox_segment_wearable_write_key", "THE_SEGMENT_API_WRITE_KEY_WEARABLE_DEMO_GOES_HERE"
+//        versionCode gitVersionCode
+//        versionName gitVersionName
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility JVMcompileOptions.sourceCompatibility
+        targetCompatibility JVMcompileOptions.targetCompatibility
+    }
+}
+
+dependencies {
+    implementation dependenciesSupportList.annotation
+    implementation dependenciesList.segmentAnalytics
+}
+
+apply from: './gradle-config.gradle'

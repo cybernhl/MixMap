@@ -1,0 +1,79 @@
+def mapProjectRoot = rootProject.projectDir.parentFile.toPath()
+println 'mapProjectRoot : '+mapProjectRoot
+//ERROR: Cannot convert a null value to an object of type Dependency.
+//The following types/formats are supported:
+//- Instances of Dependency.
+//- String or CharSequence values, for example 'org.gradle:gradle-core:1.0'.
+//- Maps, for example [group: 'org.gradle', name: 'gradle-core', version: '1.0'].
+//- FileCollections, for example files('some.jar', 'someOther.jar').
+//- Projects, for example project(':some:project:path').
+//- ClassPathNotation, for example gradleApi().
+//
+//        Comprehensive documentation on dependency notations is available in DSL reference for DependencyHandler type.
+//GoogleMap
+
+include ':Java_Version'
+project(":Java_Version").projectDir = file("./Google/Official/AndroidJava")
+
+include ':CurrentPlaceDetailsOnMap'
+project(":CurrentPlaceDetailsOnMap").projectDir = file("./Google/Official/CurrentPlaceDetailsOnMap")
+
+include ':MapWithMarker'
+project(":MapWithMarker").projectDir = file("./Google/Official/MapWithMarker")
+
+include ':Polygons'
+project(":Polygons").projectDir = file("./Google/Official/Polygons")
+
+include ':StyledMap'
+project(":StyledMap").projectDir = file("./Google/Official/StyledMap")
+
+include ':MapsUtilsDemo'
+project(":MapsUtilsDemo").projectDir = file("./Google/Official/MapsUtilsDemo")
+
+include ':MapsUtilslibrary'
+project(":MapsUtilslibrary").projectDir = file("./Google/Official/MapsUtilslibrary")
+
+include ':Kotlin_Version'
+project(":Kotlin_Version").projectDir = file("./Google/Official/AndroidKotlin")
+
+include ':WearOS_Wearable'
+project(":WearOS_Wearable").projectDir = file("./Google/Official/WearOS_Wearable")
+
+//MapBox
+include ':SharedCode'
+project(":SharedCode").projectDir = file("./MapBox/Official/AndroidDemo/SharedCode")
+
+include ':MapboxAndroidWearDemo'
+project(":MapboxAndroidWearDemo").projectDir = file("./MapBox/Official/AndroidDemo/MapboxAndroidWearDemo")
+
+include ':MapboxAndroidDemo'
+project(":MapboxAndroidDemo").projectDir = file("./MapBox/Official/AndroidDemo/MapboxAndroidDemo")
+
+include ':libcore'
+project(":libcore").projectDir = file("./MapBox/Official/EventsAndroid/libcore")
+
+include ':liblocation'
+project(":liblocation").projectDir = file("./MapBox/Official/EventsAndroid/liblocation")
+
+include ':libtelemetry'
+project(":libtelemetry").projectDir = file("./MapBox/Official/EventsAndroid/libtelemetry")
+
+include ':MapboxEventsAndroid'
+project(":MapboxEventsAndroid").projectDir = file("./MapBox/Official/EventsAndroid/MapboxEventsAndroid")
+
+include ':library'
+project(":library").projectDir = file("./MapBox/Official/GesturesAndroid/library")
+
+include ':MapboxGesturesAndroid'
+project(":MapboxGesturesAndroid").projectDir = file("./MapBox/Official/GesturesAndroid/MapboxGesturesAndroid")
+
+//include ':MapboxVision'
+//project(":MapboxVision").projectDir = file("./MapBox/Official/Vision/MapboxVision")
+
+//def plugins = new Properties()
+//
+//plugins.each { name, path ->
+//    def pluginDirectory = mapProjectRoot.resolve(path).resolve('MapBox').toFile()
+//    include ":$name"
+//    project(":$name").projectDir = pluginDirectory
+//}

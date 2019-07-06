@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+    defaultConfig {
+        applicationId "com.mapbox.android.events.testapp"
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        full {
+            dimension "version"
+        }
+
+        lite {
+            dimension "version"
+            versionNameSuffix "-lite"
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Force our version of support-v4 to silence lint
+        force dependenciesSupportList.legacy_support_v4
+    }
+}
+
+dependencies {
+
+//    testImplementation dependenciesList.junit
+//    testImplementation dependenciesList.mockito
+//    androidTestImplementation(dependenciesList.testEspressoCore, {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+
+
+    implementation  dependenciesSupportList.appcompat
+    implementation  dependenciesSupportList.constraintlayout
+    implementation dependenciesGooglePlayList.location_and_activity_recognition
+
+
+
+    implementation project(":libcore")
+    implementation project(":libtelemetry")
+}
+
+apply from: "${rootDir}/gradle/developer-config.gradle"
+apply from: "${rootDir}/gradle/checkstyle.gradle"

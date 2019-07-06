@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion//
+        versionCode 1
+        versionName "0.1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+
+    lintOptions {
+        warningsAsErrors true
+        abortOnError true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    //    testImplementation dependenciesList.junit
+//    testImplementation dependenciesList.mockito
+//    testImplementation dependenciesList.assertJ
+//    testImplementation dependenciesGooglePlayList.location_and_activity_recognition
+//
+//    androidTestImplementation(dependenciesList.testEspressoCore, {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+//    androidTestImplementation dependenciesGooglePlayList.location_and_activity_recognition
+//    compileOnly dependenciesList.gmsLocation
+    compileOnly dependenciesGooglePlayList.location_and_activity_recognition
+}

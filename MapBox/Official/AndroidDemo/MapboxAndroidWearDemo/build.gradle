@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+//apply from: "$project.rootDir/gradle/script-git-version.gradle"
+apply plugin: 'com.google.firebase.firebase-perf'
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    defaultConfig {
+        applicationId "com.mapbox.mapboxandroiddemo"
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion
+
+//        versionCode gitVersionCode
+//        versionName gitVersionName
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        release {
+            keyAlias System.getenv("CIRCLECI_ANDROID_KEYSTORE_ALIAS")
+            keyPassword System.getenv("CIRCLECI_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+            storeFile file("$project.rootDir/mapbox_demo.keystore")
+            storePassword System.getenv("CIRCLECI_ANDROID_KEYSTORE_PASSWORD")
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation', 'ExtraTranslation'
+    }
+    compileOptions {
+        sourceCompatibility JVMcompileOptions.sourceCompatibility
+        targetCompatibility JVMcompileOptions.targetCompatibility
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':SharedCode')
+    compileOnly wearDependencies.googleWearable
+    implementation wearDependencies.supportGoogleWearable
+    implementation dependenciesGooglePlayList.wear
+    implementation dependenciesGooglePlayList.location_and_activity_recognition
+
+//    // Firebase
+    implementation dependenciesFirebaseList.firebaseCrash
+    implementation dependenciesFirebaseList.performance_Monitoring
+
+//    // Mapbox dependencies
+    api(MapboxdependenciesList.mapboxSdk)
+}
+
+apply from: "$project.rootDir/gradle/checkstyle.gradle"

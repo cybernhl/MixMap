@@ -1,0 +1,161 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.triplet.play'
+//apply from: "$project.rootDir/gradle/script-git-version.gradle"
+apply from: "$project.rootDir/gradle/gradle-dependencies-graph.gradle"
+
+def isGlobal
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+    playAccountConfigs {
+        defaultAccountConfig {
+            serviceAccountEmail = 'mapbox-android-demo-publish@android-gl-native.iam.gserviceaccount.com'
+            jsonFile = file("$project.rootDir/android-gl-native-6d21dd280e7b.json")
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation', 'ExtraTranslation'
+    }
+    defaultConfig {
+        applicationId "com.mapbox.mapboxandroiddemo"
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion//
+//        versionCode gitVersionCode
+//        versionName gitVersionName
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        buildConfigField "int", "MIN_SDK_VERSION", "$minSdkVersion.apiLevel"
+        playAccountConfig = playAccountConfigs.defaultAccountConfig
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias System.getenv("CIRCLECI_ANDROID_KEYSTORE_ALIAS")
+            keyPassword System.getenv("CIRCLECI_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+            storeFile file("$project.rootDir/mapbox_demo.keystore")
+            storePassword System.getenv("CIRCLECI_ANDROID_KEYSTORE_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-Debug'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        global {
+            isGlobal = true
+            resValue "string", "firebase_app_id", "1:557332920931:android:bdf11618ae45dd61"
+            resValue "string", "firebase_api_key", "AIzaSyCGCYLyLoi31Hv-pkBO0D51zCyxjngJbz8"
+        }
+
+        china {
+            isGlobal = false
+            repositories {
+                maven { url "https://mapbox.bintray.com/mapbox" }
+            }
+        }
+    }
+    splits {
+        abi {
+            enable false
+            universalApk false
+        }
+    }
+
+    play {
+        track = 'alpha'
+        untrackOld = true
+    }
+
+    compileOptions {
+        sourceCompatibility JVMcompileOptions.sourceCompatibility
+        targetCompatibility JVMcompileOptions.targetCompatibility
+    }
+}
+
+if (isGlobal) {
+    apply plugin: 'com.google.firebase.firebase-perf'
+}
+
+dependencies {
+//    // Testing
+//    implementation dependenciesList.testEspressoCore
+//    implementation dependenciesList.testEspressoIntents
+//    implementation dependenciesList.testEspressoContrib
+//    androidTestImplementation dependenciesList.testRunner
+//    androidTestImplementation dependenciesList.testRules
+//    androidTestImplementation dependenciesList.supportAnnotations
+//    implementation dependenciesList.junit
+//    // Support
+    implementation dependenciesSupportList.multidex
+    implementation dependenciesSupportList.legacy_support_v4
+    implementation dependenciesSupportList.appcompat
+    implementation dependenciesSupportList.gridlayout
+    implementation dependenciesSupportList.cardview
+    implementation dependenciesSupportList.recyclerview
+    implementation dependenciesSupportList.material
+    implementation dependenciesSupportList.browser
+    implementation dependenciesSupportList.constraintlayout
+
+//    // Firebase
+    globalImplementation dependenciesFirebaseList.firebaseCrash
+    globalImplementation dependenciesFirebaseList.performance_Monitoring
+//    // Kotlin
+    implementation KotlinDependenciesList.std_jdk7
+//    // Common module
+//    implementation project(':SharedCode')
+    implementation project(path: ':SharedCode')
+    //    globalWearApp project(':MapboxAndroidWearDemo')
+    globalWearApp project(path: ':MapboxAndroidWearDemo')
+
+//    // Mapbox dependencies
+    chinaImplementation MapboxdependenciesList.mapboxChina
+    implementation MapboxdependenciesList.mapboxSdk
+    implementation MapboxdependenciesList.mapboxTurf
+    implementation MapboxdependenciesList.mapboxServices
+//
+//    // Mapbox plugins
+    implementation MapboxdependenciesList.mapboxBuilding
+    implementation MapboxdependenciesList.mapboxPlaces
+    implementation MapboxdependenciesList.mapboxLocalization
+    implementation MapboxdependenciesList.mapboxTraffic
+    implementation MapboxdependenciesList.mapboxMarkerView
+
+//    // Other dependencies
+    implementation dependenciesgeneralList.gson
+    implementation dependenciesList.baseFab
+    implementation dependenciesList.materialStyleDialog
+    implementation dependenciesList.cuttaGifView
+    implementation dependenciesList.materialDialogsCommons
+
+//    // Square crew
+    implementation SquaredependenciesList.okhttp3
+    implementation SquaredependenciesList.picasso
+    implementation SquaredependenciesList.retrofit
+    implementation SquaredependenciesList.retrofitGsonConverter
+    implementation SquaredependenciesList.timber
+}
+
+apply from: "${rootDir}/gradle/checkstyle.gradle"
+apply plugin: 'kotlin-android-extensions'

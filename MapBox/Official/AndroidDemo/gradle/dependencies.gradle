@@ -1,0 +1,133 @@
+ext {
+    pluginVersion = [
+            gradle             : '3.4.1',
+            kotlin             : '1.3.40',
+            checkstyle         : '8.11.0',
+            pmd                : '5.8.1',
+            firebase           : '1.1.1',
+            gradlePlayPublisher: '1.2.2',
+            errorprone         : '0.0.14',
+            coveralls          : '2.8.1',
+            spotbugs           : '1.3',
+            jacoco             : '0.13.0',
+            dokka              : '0.9.17',
+            sonarqube          : '2.5',
+            buildConfig        : '1.1.8',
+            dependencyUpdates  : '0.20.0',
+//            dependencyGraph    : '0.5.0'
+//            dependencyGraph    : '0.6.0-SNAPSHOT'
+            dependencyGraph    : '0.3.0'
+    ]
+
+    dependencieslibraryversion = [
+
+            //Play Service
+
+            assertJ               : "3.11.1",
+
+
+            // Square
+            timber                : '4.7.1',
+
+            leakCanary            : '1.6.3',
+
+            okhttp3               : '3.11.0',
+            picasso               : '2.71828',
+            retrofit              : '2.4.0',
+            retrofit_version      : '2.4.0',
+            // Other
+
+            segmentAnalytics      : '2.0.0',
+            materialStyleDialog   : '2.1',
+            cuttaGifView          : '1.1',
+            baseFab               : '1.10.1',
+            materialDialogsCommons: '0.9.6.0',
+
+            junit                 : '4.12',
+            mockito               : '2.23.4',
+
+            robolectric           : '4.1',
+
+            commonsIO             : '2.6',
+            ankoCommon            : '0.10.0',
+            autoValue             : '1.6.2',
+            autoValueParcel       : '0.2.6',
+            autoValueGson         : '0.8.0',
+            spoonRunner           : '1.6.2',
+            hamcrest              : '2.0.0.0',
+            errorprone            : '2.3.1',
+            butterknife           : '8.8.1'
+    ]
+
+
+    pluginDependencies = [
+            gradle           : "com.android.tools.build:gradle:${pluginVersion.gradle}",
+            checkstyle       : "com.puppycrawl.tools:checkstyle:${pluginVersion.checkstyle}",
+            firebase         : "com.google.firebase:firebase-plugins:${pluginVersion.firebase}",
+            playPublisher    : "com.github.triplet.gradle:play-publisher:${pluginVersion.gradlePlayPublisher}",
+            kotlin           : "org.jetbrains.kotlin:kotlin-gradle-plugin:${pluginVersion.kotlin}",
+            spotbugs         : "gradle.plugin.com.github.spotbugs:gradlePlugin:${pluginVersion.spotbugs}",
+            coveralls        : "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${pluginVersion.coveralls}",
+            errorprone       : "net.ltgt.gradle:gradle-errorprone-plugin:${pluginVersion.errorprone}",
+            dependencyUpdates: "com.github.ben-manes:gradle-versions-plugin:${pluginVersion.dependencyUpdates}",
+            jacoco           : "com.github.ben-manes:gradle-versions-plugin:${pluginVersion.jacoco}",
+            dependencyGraph  : "com.vanniktech:gradle-dependency-graph-generator-plugin:${pluginVersion.dependencyGraph}",
+            sonarqube        : "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${pluginVersion.sonarqube}",
+            buildConfig      : "gradle.plugin.de.fuerstenau:BuildConfigPlugin:${pluginVersion.buildConfig}",
+            dokka            : "org.jetbrains.dokka:dokka-android-gradle-plugin:${pluginVersion.dokka}"
+    ]
+
+    dependenciesList = [
+//            // gson
+gson                  : 'com.google.code.gson:gson:2.8.5',
+
+//            // Other
+segmentAnalytics      : 'com.segment.analytics.java:analytics:2.0.0',
+materialStyleDialog   : 'com.github.javiersantos:MaterialStyledDialogs:2.1',
+cuttaGifView          : 'com.github.Cutta:GifView:1.1',
+baseFab               : 'com.getbase:floatingactionbutton:1.10.1',
+materialDialogsCommons: 'com.afollestad.material-dialogs:commons:0.9.6.0'
+//
+//            ankoCommon              : "org.jetbrains.anko:anko-common:${version.ankoCommon}",
+//
+//            // AutoValue
+//            autoValue               : "com.google.auto.value:auto-value:${version.autoValue}",
+//            autoValueGson           : "com.ryanharter.auto.value:auto-value-gson:${version.autoValueGson}",
+//            autoValuesParcel        : "com.ryanharter.auto.value:auto-value-parcel:${version.autoValueParcel}",
+//            autoValuesParcelAdapter : "com.ryanharter.auto.value:auto-value-parcel-adapter:${version.autoValueParcel}",
+//            // instrumentation test
+//            testRunner              : "com.android.support.test:runner:${version.testRunnerVersion}",
+//            testRules               : "com.android.support.test:rules:${version.testRunnerVersion}",
+//            testEspressoCore        : "com.android.support.test.espresso:espresso-core:${version.espressoVersion}",
+//            testEspressoContrib     : "com.android.support.test.espresso:espresso-contrib:${version.espressoVersion}",
+//            testEspressoIntents     : "com.android.support.test.espresso:espresso-intents:${version.espressoVersion}",
+//            testSpoonRunner         : "com.squareup.spoon:spoon-client:${version.spoonRunner}",
+//            testRoom                : "android.arch.persistence.room:testing:${version.room}",
+//            testArchCore            : "android.arch.core:core-testing:${version.androidArchCore}",
+//            // unit test
+//            junit                   : "junit:junit:${version.junit}",
+//
+//
+//            robolectric             : "org.robolectric:robolectric:${version.robolectric}",
+//
+//
+//
+//            mockito                 : "org.mockito:mockito-core:${version.mockito}",
+//
+////            mockito                : "org.mockito:mockito-inline:${version.mockito}",
+//            androidArchCore         : "android.arch.core:core-testing:${version.androidArchCore}",
+//
+//            mockitoCore             : "org.mockito:mockito-core:${version.mockito}",
+//            mockitoAndroid          : "org.mockito:mockito-android:${version.mockito}",
+//            commonsIO               : "commons-io:commons-io:${version.commonsIO}",
+//
+//            assertJ                 : "org.assertj:assertj-core:${version.assertJ}",
+//            hamcrest                : "org.hamcrest:hamcrest-junit:${version.hamcrest}",
+//            hamcrestJunit           : "org.hamcrest:hamcrest-junit:${version.hamcrest}",
+//            // butterknife
+//            butterKnife             : "com.jakewharton:butterknife:${version.butterknife}",
+//            butterKnifeProcessor    : "com.jakewharton:butterknife-compiler:${version.butterknife}",
+//
+//            errorprone              : "com.google.errorprone:error_prone_core:${version.errorprone}"
+    ]
+}

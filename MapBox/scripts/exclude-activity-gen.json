@@ -1,0 +1,12 @@
+[
+	"SupportMapFragmentActivity",
+	"PlaceSelectionPluginActivity",
+	"MapboxMapOptionActivity",
+	"MarathonExtrusionActivity",
+	"RotationExtrusionActivity",
+	"StaticImageActivity",
+	"PulsingLayerOpacityColorActivity",
+	"LocationComponentFragmentActivity",
+	"InsetMapActivity",
+	"HomeScreenWidgetActivity"
+]

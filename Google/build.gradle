@@ -1,0 +1,81 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    apply from: "${rootDir}/gradle/dependencies.gradle"
+    repositories {
+        maven { url "https://maven.google.com" }
+        google()
+        jcenter()
+        maven { // The google mirror is less flaky than mavenCentral()
+            url "https://maven-central.storage-download.googleapis.com/repos/central/data/"
+        }
+        maven { url "https://plugins.gradle.org/m2/" }
+
+    }
+    dependencies {
+        classpath pluginDependencies.gradle
+        classpath pluginDependencies.firebase
+        classpath pluginDependencies.playPublisher
+        classpath pluginDependencies.kotlin
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id 'com.palantir.circle.style' version '1.1.2'
+}
+
+allprojects {
+    repositories {
+        maven { url "https://maven.google.com" }
+        google()
+        jcenter()
+        maven { // The google mirror is less flaky than mavenCentral()
+            url "https://maven-central.storage-download.googleapis.com/repos/central/data/"
+        }
+        maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+        mavenLocal()
+        maven { url "https://jitpack.io" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects {
+    // apply plugin: 'idea'
+    apply from: "${rootDir}/gradle/dependencies.gradle"
+}
+
+/**
+ * Improve build server performance by allowing disabling of pre-dexing
+ * (see http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance.)
+ */
+project.ext.preDexLibs = !project.hasProperty('disablePreDex')
+
+subprojects {
+    project.plugins.whenPluginAdded { plugin ->
+        if (rootProject.ext.has('preDexLibs')) {
+            if ("com.android.build.gradle.AppPlugin".equals(plugin.class.name)) {
+                project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
+            } else if ("com.android.build.gradle.LibraryPlugin".equals(plugin.class.name)) {
+                project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
+            }
+        }
+    }
+}
+
+//rootProject.buildDir = '../build'
+
+//subprojects {
+//    project.buildDir = "${rootProject.buildDir}/${project.name}"
+//    project.evaluationDependsOn(':MapboxAndroidDemo')
+//    project.evaluationDependsOn(':MapboxAndroidWearDemo')
+//    project.evaluationDependsOn(':SharedCode')
+//    // apply plugin: 'idea'
+//    apply from: "${rootDir}/MapBox/mapbox-android-demo/gradle/dependencies.gradle"
+//}

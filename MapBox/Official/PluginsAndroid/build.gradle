@@ -1,0 +1,32 @@
+buildscript {
+  apply from: "${rootDir}/gradle/dependencies.gradle"
+
+  repositories {
+    google()
+    jcenter()
+    maven {   url "https://maven.google.com"   }
+  }
+
+  dependencies {
+    classpath pluginDependencies.gradle
+    classpath pluginDependencies.kotlin
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+//    SNAPSHOT repository
+//    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+  }
+}
+
+subprojects {
+  apply plugin: 'idea'
+  apply from: "${rootDir}/gradle/dependencies.gradle"
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}

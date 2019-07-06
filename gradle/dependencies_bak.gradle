@@ -1,0 +1,908 @@
+ext {
+    pluginVersion = [
+            gradle             : '3.4.1',
+            kotlin             : '1.3.40',
+            checkstyle         : '8.11.0',
+            pmd                : '5.8.1',
+            firebase           : '1.1.1',
+            gradlePlayPublisher: '1.2.2',
+            errorprone         : '0.0.14',
+            coveralls          : '2.8.1',
+            spotbugs           : '1.3',
+            jacoco             : '0.13.0',
+            dokka              : '0.9.17',
+            sonarqube          : '2.5',
+            buildConfig        : '1.1.8',
+            dependencyUpdates  : '0.20.0',
+//            dependencyGraph    : '0.5.0'
+//            dependencyGraph    : '0.6.0-SNAPSHOT'
+            dependencyGraph    : '0.3.0'
+    ]
+
+    JVMcompileOptions = [
+            sourceCompatibility: 1.8,
+            targetCompatibility: 1.8
+    ]
+
+    androidSDKVersions = [
+            minSdkVersion    : 15,
+            minWearSdkVersion: 23,
+            targetSdkVersion : 28,
+            compileSdkVersion: 28,
+            buildToolsVersion: '29.0.0'
+    ]
+
+    KotlinVersions = [
+            kotlin: '1.3.40'
+    ]
+
+    Supportlibraryversion = [
+            // MultiDex
+            multiDex         : '1.0.3',
+            // Support
+            supportLibVersion: '28.0.0',
+
+            //ConstraintLayout
+            constraintLayout : '1.1.3',
+            //Databinding
+            databinding      : '3.4.1',
+            //Arch
+
+            archlifecycle    : '1.1.1',
+            archPersistence  : '1.1.1',
+            archWork         : '1.1.1',
+            archCore         : '1.1.0',
+            archNavigation   : '1.0.0',
+            archPaging       : '1.0.1',
+            archDB           : '1.1.2',
+
+            //Espresso
+            espressoVersion  : '3.0.2',
+            //Test
+            testRunnerVersion: '1.0.2'
+    ]
+
+    AndroidXlibraryVersion = [
+            activity             : '1.0.0-beta01',
+            annotation           : '1.1.0',
+            appcompat            : '1.0.2',
+            arch                 : '2.0.1',
+            asynclayoutinflater  : '1.0.0',
+            benchmark            : '1.0.0-alpha02',
+            biometric            : '1.0.0-alpha04',
+            browser              : '1.0.0',
+            camera               : '1.0.0-alpha02',
+            car                  : '1.0.0-alpha7',
+            cardview             : '1.0.0',
+            collection           : '1.1.0',
+            concurrent           : '1.0.0-beta01',
+            constraintlayout     : '1.1.3',
+            contentpager         : '1.0.0',
+            coordinatorlayout    : '1.0.0',
+            core                 : '1.0.2',
+            cursoradapter        : '1.0.0',
+            customview           : '1.0.0',
+            databinding          : '3.4.1',
+            documentfile         : '1.0.1',
+            drawerlayout         : '1.0.0',
+            dynamicanimation     : '1.0.0',
+            emoji                : '1.0.0',
+            enterprise           : '1.0.0-alpha02',
+            exifinterface        : '1.0.0',
+            fragment             : '1.0.0',
+            gridlayout           : '1.0.0',
+            heifwriter           : '1.0.0',
+            interpolator         : '1.0.0',
+            jetifier             : '1.0.0-beta05',
+            leanback             : '1.0.0',
+            legacy               : '1.0.0',
+            lifecycle            : '2.0.0',
+            loader               : '1.0.0',
+            localbroadcastmanager: '1.0.0',
+            media                : '1.0.1',
+            media2               : '1.0.0-rc01',
+            mediarouter          : '1.0.0',
+            multidex             : '2.0.1',
+            material             : '1.0.0',// Ref : https://github.com/material-components/material-components-android/releases
+            navigation           : '2.0.0',
+            paging               : '2.1.0',
+            palette_September    : '1.0.0',
+            percentlayout        : '1.0.0',
+            preference           : '1.0.0',
+            print                : '1.0.0',
+            recommendation       : '1.0.0',
+            recyclerview         : '1.0.0',
+            remotecallback       : '1.0.0-alpha02',
+            room                 : '2.1.0',
+            savedstate           : '1.0.0-beta01',
+            security             : '1.0.0-alpha02',
+            sharetarget          : '1.0.0-alpha02',
+            slice                : '1.0.0',
+            slidingpanelayout    : '1.0.0',
+            sqlite               : '2.0.1',
+            swiperefreshlayout   : '1.0.0',
+            test                 : '1.2.0',
+            textclassifier       : '1.0.0-alpha02',
+            transition           : '1.0.1',
+            tvprovider           : '1.0.0',
+            vectordrawable       : '1.0.0',
+            versionedparcelable  : '1.0.0',
+            viewpager            : '1.0.0',
+            viewpager2           : '1.0.0-alpha05',
+            wear                 : '1.0.0',
+            webkit               : '1.0.0',
+            work                 : '2.0.1',
+            //Espresso
+            espressoVersion      : '3.2.0',
+            //Test
+            testRunnerVersion    : '1.2.0'
+    ]
+
+    dependencieslibraryversion = [
+
+            //Play Service
+
+            assertJ               : "3.11.1",
+
+
+            // Square
+            timber                : '4.7.1',
+
+            leakCanary            : '1.6.3',
+
+            okhttp3               : '3.11.0',
+            picasso               : '2.71828',
+            retrofit              : '2.4.0',
+            retrofit_version      : '2.4.0',
+            // Other
+
+            segmentAnalytics      : '2.0.0',
+            materialStyleDialog   : '2.1',
+            cuttaGifView          : '1.1',
+            baseFab               : '1.10.1',
+            materialDialogsCommons: '0.9.6.0',
+
+            junit                 : '4.12',
+            mockito               : '2.23.4',
+
+            robolectric           : '4.1',
+
+            commonsIO             : '2.6',
+            ankoCommon            : '0.10.0',
+            autoValue             : '1.6.2',
+            autoValueParcel       : '0.2.6',
+            autoValueGson         : '0.8.0',
+            spoonRunner           : '1.6.2',
+            hamcrest              : '2.0.0.0',
+            errorprone            : '2.3.1',
+            butterknife           : '8.8.1'
+    ]
+
+    //Ref : https://developers.google.com/android/guides/releases
+    //https://mvnrepository.com/artifact/com.google.android.gms/play-services-maps
+    //Ref : 17.0.0 use AndroidX !!!
+    googlePlayservicesVersion = [
+            Supportversion      : '16.0.0',
+            Supportextraversion : '18.0.0',
+            AndroidXversion     : '17.0.0',
+            AndroidXextraversion: '18.0.0'
+    ]
+
+    FirebaseVersion = [
+            firebaseCrash                : '16.2.1',
+            admob                        : '18.0.0',
+            analytics                    : '17.0.0',
+            appindexing                  : '19.0.0',
+            authentication               : '18.0.0',
+            firestore                    : '20.1.0',
+            functions_for_firebase_client: '18.0.0',
+            messaging                    : '19.0.1',
+            cloud_storage                : '18.0.0',
+            crashlytics                  : '2.10.1',
+            dynamic_links                : '18.0.0',
+            In_App_Messaging             : '18.0.1',
+            In_App_Messaging_Display     : '18.0.1',
+            vision                       : '21.0.0',
+            image_labeling_model         : '18.0.0',
+            Face_Detection               : '18.0.0',
+            Detection_and_Tracking       : '17.0.0',
+            Natural_Language             : '20.0.0',
+            Language_Identification      : '20.0.0',
+            Translate                    : '20.0.0',
+            Smart_Reply                  : '20.0.0',
+            Custom_Model                 : '20.0.0',
+            AutoML_Vision_Edge           : '17.0.0',
+            performance_Monitoring       : '18.0.1',
+            Realtime_Database            : '18.0.0',
+            Remote_Config                : '18.0.0'
+    ]
+
+    wearVersion = [
+            wearable: '2.4.0'
+    ]
+
+    SquarevicesVersion = [
+            okthttp3                 : '3.11.0',
+            picasso                  : '2.5.2',
+            retrofit                 : '2.4.0',
+            leakCanary               : '1.5.4',
+            timber                   : '4.7.1',
+    ]
+
+    mapboxVersion = [
+            mapboxSdk               : '6.8.0',
+            mapboxTurf              : '4.3.0',
+            mapboxServices          : '4.3.0',
+            mapboxAndroidServices   : '2.2.10',
+            mapboxJavaServices      : '2.2.10',
+
+            mapboxGeoJson           : '4.3.0',
+            mapboxAndroidGeoJson    : '0.3.0',
+            mapboxJavaGeoJson       : '2.2.10',
+            mapboxEvents            : '0.1.0',
+
+
+            mapboxTelemetry         : '4.3.0',
+            mapboxTelemetryLite     : '4.3.0',
+
+            mapboxSearch            : '0.1.0',
+            vision_core             : '0.1.0',
+            mapbox_core             : '0.1.0',
+            mapbox_sdk_core         : '4.3.0',
+
+            mapboxJava              : '4.3.0',
+
+
+            mapboxNavigator         : '0.1.0',
+            mapboxAndroidNavigatorUI: '0.40.0',
+            mapboxAndroidNavigator  : '0.40.0',
+
+            mapboxAndroidAccounts   : '0.2.0',
+            mapboxAndroidUI         : '2.2.10',
+            mapboxAndroidGestures   : '0.4.2',
+
+            mapboxChina             : '1.2.0',
+            mapboxLocationlayer     : '0.11.0',
+            mapboxAnnotation        : '0.3.0',
+            mapboxBuilding          : '0.4.0',
+            mapboxPlaces            : '0.6.0',
+            mapboxLocalization      : '0.6.0',
+            mapboxTraffic           : '0.7.0',
+            mapboxMarkerView        : '0.1.0',
+            mapboxOffline           : '0.3.0',
+
+            mapboxMapPrefix_v7      : 'v7',
+            mapboxAnnotation_v7     : '0.6.0',
+            mapboxBuilding_v7       : '0.5.0',
+            mapboxPlaces_v7         : '0.8.0',
+            mapboxLocalization_v7   : '0.9.0',
+            mapboxTraffic_v7        : '0.8.0',
+            mapboxMarkerView_v7     : '0.2.0',
+            mapboxOffline_v7        : '0.5.0',
+
+            mapboxMapPrefix_v8      : 'v8',
+            mapboxAnnotation_v8     : '0.7.0',
+            mapboxLocalization_v8   : '0.10.0',
+            mapboxTraffic_v8        : '0.9.0',
+            mapboxOffline_v8        : '0.6.0',
+            mapboxScalebar_v8       : '0.1.0',
+            mapboxMarkerView_v8     : '0.3.0'
+    ]
+
+    pluginDependencies = [
+            gradle           : "com.android.tools.build:gradle:${pluginVersion.gradle}",
+            checkstyle       : "com.puppycrawl.tools:checkstyle:${pluginVersion.checkstyle}",
+            firebase         : "com.google.firebase:firebase-plugins:${pluginVersion.firebase}",
+            playPublisher    : "com.github.triplet.gradle:play-publisher:${pluginVersion.gradlePlayPublisher}",
+            kotlin           : "org.jetbrains.kotlin:kotlin-gradle-plugin:${pluginVersion.kotlin}",
+            spotbugs         : "gradle.plugin.com.github.spotbugs:gradlePlugin:${pluginVersion.spotbugs}",
+            coveralls        : "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${pluginVersion.coveralls}",
+            errorprone       : "net.ltgt.gradle:gradle-errorprone-plugin:${pluginVersion.errorprone}",
+            dependencyUpdates: "com.github.ben-manes:gradle-versions-plugin:${pluginVersion.dependencyUpdates}",
+            jacoco           : "com.github.ben-manes:gradle-versions-plugin:${pluginVersion.jacoco}",
+            dependencyGraph  : "com.vanniktech:gradle-dependency-graph-generator-plugin:${pluginVersion.dependencyGraph}",
+            sonarqube        : "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${pluginVersion.sonarqube}",
+            buildConfig      : "gradle.plugin.de.fuerstenau:BuildConfigPlugin:${pluginVersion.buildConfig}",
+            dokka            : "org.jetbrains.dokka:dokka-android-gradle-plugin:${pluginVersion.dokka}"
+    ]
+
+//          //Ref : https://developer.android.com/jetpack/androidx/releases/biometric
+    dependenciesAndroidXList = [
+            // Arch
+            arch_core                           : "androidx.arch.core:core${AndroidXlibraryVersion.arch}",
+            arch_core_common                    : "androidx.arch.core:core-common:${AndroidXlibraryVersion.arch}",
+            arch_core_testing                   : "androidx.arch.core:core-testing:${AndroidXlibraryVersion.arch}",
+            arch_core_runtime                   : "androidx.arch.core:core-runtime:${AndroidXlibraryVersion.arch}",
+// Compat Core
+            compat_core                         : "androidx.core:core:${AndroidXlibraryVersion.core}",
+// Lifecycle
+            lifecycle_common                    : "androidx.lifecycle:lifecycle-common:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_common_java8              : "androidx.lifecycle:lifecycle-common-java8:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_compiler                  : "androidx.lifecycle:lifecycle-compiler:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_extensions                : "androidx.lifecycle:lifecycle-extensions:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_livedata                  : "androidx.lifecycle:lifecycle-livedata:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_livedata_core             : "androidx.lifecycle:lifecycle-livedata-core:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_reactivestreams           : "androidx.lifecycle:lifecycle-reactivestreams:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_runtime                   : "androidx.lifecycle:lifecycle-runtime:${AndroidXlibraryVersion.lifecycle}",
+            lifecycle_viewmodel                 : "androidx.lifecycle:lifecycle-viewmodel:${AndroidXlibraryVersion.lifecycle}",
+//            // Paging
+            paging_common                       : "androidx.paging:paging-common:${AndroidXlibraryVersion.paging}",
+            paging_runtime                      : "androidx.paging:paging-runtime:${AndroidXlibraryVersion.paging}",
+            paging_rxjava2                      : "androidx.paging:paging-rxjava2:${AndroidXlibraryVersion.paging}",
+//            // Room
+            room_common                         : "androidx.room:room-common:${AndroidXlibraryVersion.room}",
+            room_compiler                       : "androidx.room:room-compiler:${AndroidXlibraryVersion.room}",
+            room_guava                          : "androidx.room:room-guava:${AndroidXlibraryVersion.room}",
+            room_migration                      : "androidx.room:room-migration:${AndroidXlibraryVersion.room}",
+            room_runtime                        : "androidx.room:room-runtime:${AndroidXlibraryVersion.room}",
+            room_rxjava2                        : "androidx.room:room-rxjava2:${AndroidXlibraryVersion.room}",
+            room_testing                        : "androidx.room:room-testing:${AndroidXlibraryVersion.room}",//
+//            // SQLite
+            sqlite                              : "androidx.sqlite:sqlite:${AndroidXlibraryVersion.sqlite}",
+            sqlite_framework                    : "androidx.sqlite:sqlite-framework:${AndroidXlibraryVersion.sqlite}",//
+//            // ConstraintLayout
+            constraintlayout                    : "androidx.constraintlayout:constraintlayout:${AndroidXlibraryVersion.constraintlayout}",
+            constraintlayout_solver             : "androidx.constraintlayout:constraintlayout-solver:${AndroidXlibraryVersion.constraintlayout}",//
+//            // VectorDrawable//
+            vectordrawable                      : "androidx.vectordrawable:vectordrawable:${AndroidXlibraryVersion.vectordrawable}",
+            vectordrawable_animated             : "androidx.vectordrawable:vectordrawable-animated:${AndroidXlibraryVersion.vectordrawable}",
+//            // Appcompat
+            appcompat                           : "androidx.appcompat:appcompat:${AndroidXlibraryVersion.appcompat}",
+//            // AsyncLayoutInflater
+            asynclayoutinflater                 : "androidx.asynclayoutinflater:asynclayoutinflater:${AndroidXlibraryVersion.asynclayoutinflater}",
+//            // CardView
+            cardview                            : "androidx.cardview:cardview:${AndroidXlibraryVersion.cardview}",
+//            // Collection
+            collection                          : "androidx.collection:collection:${AndroidXlibraryVersion.collection}",
+//            // CoordinatorLayout
+            coordinatorlayout                   : "androidx.coordinatorlayout:coordinatorlayout:${AndroidXlibraryVersion.coordinatorlayout}",
+//            // CursorAdapter
+            cursoradapter                       : "androidx.cursoradapter:cursoradapter:${AndroidXlibraryVersion.cursoradapter}",
+//            // Browser
+            browser                             : "androidx.browser:browser:${AndroidXlibraryVersion.browser}",
+//            // CustomView
+            customview                          : "androidx.customview:customview:${AndroidXlibraryVersion.customview}",
+//            // DocumentFile
+            documentfile                        : "androidx.documentfile:documentfile:${AndroidXlibraryVersion.documentfile}",
+//            // DrawerLayout
+            drawerlayout                        : "androidx.drawerlayout:drawerlayout:${AndroidXlibraryVersion.drawerlayout}",
+//            // ExifInterface
+            exifinterface                       : "androidx.exifinterface:exifinterface:${AndroidXlibraryVersion.exifinterface}",
+//            // GridLayout
+            gridlayout                          : "androidx.gridlayout:gridlayout:${AndroidXlibraryVersion.gridlayout}",
+//            // HeifWriter
+            heifwriter                          : "androidx.heifwriter:heifwriter:${AndroidXlibraryVersion.heifwriter}",
+//            // Interpolator
+            interpolator                        : "androidx.interpolator:interpolator:${AndroidXlibraryVersion.interpolator}",
+//            // LeanBack
+            leanback                            : "androidx.leanback:leanback:${AndroidXlibraryVersion.leanback}",
+            leanback_preference                 : "androidx.leanback:leanback-preference:${AndroidXlibraryVersion.leanback}",
+//            // Loader
+            loader                              : "androidx.loader:loader:${AndroidXlibraryVersion.loader}",
+//            // LocalBroadcastManager
+            localbroadcastmanager               : "androidx.localbroadcastmanager:localbroadcastmanager:${AndroidXlibraryVersion.localbroadcastmanager}",
+//            // Media2
+            media2                              : "androidx.media2:media2:${AndroidXlibraryVersion.media2}",
+            media2_exoplayer                    : "androidx.media2:media2-exoplayer:${AndroidXlibraryVersion.media2}",
+//            // MediaRouter
+            mediarouter                         : "androidx.mediarouter:mediarouter:${AndroidXlibraryVersion.mediarouter}",
+//            // MultiDex
+            multidex                            : "androidx.multidex:multidex:${AndroidXlibraryVersion.multidex}",
+            multidex_instrumentation            : "androidx.multidex:multidex-instrumentation:${AndroidXlibraryVersion.multidex}",
+//            // Palette
+            palette                             : "androidx.palette:palette:${AndroidXlibraryVersion.palette_September}",
+//            // PercentLayout
+            percentlayout                       : "androidx.percentlayout:percentlayout:${AndroidXlibraryVersion.percentlayout}",
+//            // Preference
+            preference                          : "androidx.preference:preference:${AndroidXlibraryVersion.preference}",
+//            // Print
+            print                               : "androidx.print:print:${AndroidXlibraryVersion.print}",
+//            // Recommendation
+            recommendation                      : "androidx.recommendation:recommendation:${AndroidXlibraryVersion.recommendation}",
+//            // Recyclerview
+            recyclerview                        : "androidx.recyclerview:recyclerview:${AndroidXlibraryVersion.recyclerview}",
+            recyclerview_selection              : "androidx.recyclerview:recyclerview-selection:${AndroidXlibraryVersion.recyclerview}",
+//            // Slice
+            slice_core                          : "androidx.slice:slice-core:${AndroidXlibraryVersion.slice}",
+            slice_builders                      : "androidx.slice:slice-builders:${AndroidXlibraryVersion.slice}",
+            slice_view                          : "androidx.slice:slice-view:${AndroidXlibraryVersion.slice}",
+//            // SlidingpaneLayout
+            slidingpanelayout                   : "androidx.slidingpanelayout:slidingpanelayout:${AndroidXlibraryVersion.slidingpanelayout}",
+//            // Annotation
+            annotation                          : "androidx.annotation:annotation:${AndroidXlibraryVersion.annotation}",//
+//            // ContentPager
+            contentpager                        : "androidx.contentpager:contentpager:${AndroidXlibraryVersion.contentpager}",
+//            // Legacy
+            legacy_support_v4                   : "androidx.legacy:legacy-support-v4:${AndroidXlibraryVersion.legacy}",
+            legacy_support_v13                  : "androidx.legacy:legacy-support-v13:${AndroidXlibraryVersion.legacy}",
+            legacy_preference_v14               : "androidx.legacy:legacy-preference-v14:${AndroidXlibraryVersion.legacy}",
+            legacy_support_core_ui              : "androidx.legacy:legacy-support-core-ui:${AndroidXlibraryVersion.legacy}",
+            legacy_support_core_utils           : "androidx.legacy:legacy-support-core-utils:${AndroidXlibraryVersion.legacy}",
+//            // Dynamicanimation
+            dynamicanimation                    : "androidx.dynamicanimation:dynamicanimation:${AndroidXlibraryVersion.dynamicanimation}",
+//            // Emoji
+            emoji                               : "androidx.emoji:emoji:${AndroidXlibraryVersion.emoji}",
+            emoji_appcompat                     : "androidx.emoji:emoji-appcompat:${AndroidXlibraryVersion.emoji}",
+            emoji_bundled                       : "androidx.emoji:emoji-bundled:${AndroidXlibraryVersion.emoji}",
+//            // Fragment
+            fragment                            : "androidx.fragment:fragment:${AndroidXlibraryVersion.fragment}",
+//            // media
+            media                               : "androidx.media:media:${AndroidXlibraryVersion.media}",
+//            // TVProvider
+            tvprovider                          : "androidx.tvprovider:tvprovider:${AndroidXlibraryVersion.tvprovider}",//
+//            // SwiperefreshLayout
+            swiperefreshlayout                  : "androidx.swiperefreshlayout:swiperefreshlayout:${AndroidXlibraryVersion.swiperefreshlayout}",
+//            // Textclassifier
+            textclassifier                      : "androidx.textclassifier:textclassifier:${AndroidXlibraryVersion.textclassifier}",
+//            // Transition
+            transition                          : "androidx.transition:transition:${AndroidXlibraryVersion.transition}",
+//            // VersionEdparcelable
+            versionedparcelable                 : "androidx.versionedparcelable:versionedparcelable:${AndroidXlibraryVersion.versionedparcelable}",
+//            // Viewpager
+            viewpager                           : "androidx.viewpager:viewpager:${AndroidXlibraryVersion.viewpager}",
+//            // Wear
+            wear                                : "androidx.wear:wear:${AndroidXlibraryVersion.wear}",
+//            // Webkit
+            webkit                              : "androidx.webkit:webkit:${AndroidXlibraryVersion.webkit}",
+//            // Car
+            car                                 : "androidx.car:car:${AndroidXlibraryVersion.car}",
+//            // Material
+            material                            : "com.google.android.material:material:${AndroidXlibraryVersion.material}",
+// Activity
+            activity                            : "androidx.activity:activity:${AndroidXlibraryVersion.activity}",
+            activity_ktx                        : "androidx.activity:activity-ktx:${AndroidXlibraryVersion.activity}",
+// Benchmark
+            benchmark                           : "androidx.benchmark:benchmark:${AndroidXlibraryVersion.benchmark}",
+// Biometric
+            biometric                           : "androidx.biometric:biometric:${AndroidXlibraryVersion.biometric}",
+// CameraX
+            camerax_core                        : "androidx.camera:camera-core:${AndroidXlibraryVersion.camera}",
+            camerax_camera2                     : "androidx.camera:camera-camera2:${AndroidXlibraryVersion.camera}",
+            // Concurrent
+            concurrent_futures                  : "androidx.concurrent:concurrent-futures:${AndroidXlibraryVersion.concurrent}",
+            concurrent_listenablefuture         : "androidx.concurrent:concurrent-listenablefuture:${AndroidXlibraryVersion.concurrent}",
+            concurrent_listenablefuture_callback: "androidx.concurrent:concurrent-listenablefuture-callback:${AndroidXlibraryVersion.concurrent}",
+            // databinding
+            databinding_common                  : "androidx.databinding:databinding-common:${AndroidXlibraryVersion.databinding}",
+            databinding_runtime                 : "androidx.databinding:databinding-runtime:${AndroidXlibraryVersion.databinding}",
+            databinding_adapters                : "androidx.databinding:databinding-adapters:${AndroidXlibraryVersion.databinding}",
+            databinding_compiler                : "androidx.databinding:databinding-compiler:${AndroidXlibraryVersion.databinding}",
+            databinding_compiler_common         : "androidx.databinding:databinding-compiler-common:${AndroidXlibraryVersion.databinding}",
+            // Enterprise
+            enterprise                          : "androidx.enterprise:enterprise-feedback:${AndroidXlibraryVersion.enterprise}",
+            // Jetifier
+            jetifier_core                       : "com.android.tools.build.jetifier:jetifier-core:${AndroidXlibraryVersion.jetifier}",
+            jetifier_processor                  : "com.android.tools.build.jetifier:jetifier-core:${AndroidXlibraryVersion.jetifier}",
+            // Navigation
+            navigation_fragment                 : "androidx.navigation:navigation-fragment:${AndroidXlibraryVersion.navigation}",
+            navigation_ui                       : "androidx.navigation:navigation-ui:${AndroidXlibraryVersion.navigation}",
+            navigation_fragment_ktx             : "androidx.navigation:navigation-fragment-ktx:${AndroidXlibraryVersion.navigation}",
+            navigation_ui_ktx                   : "androidx.navigation:navigation-ui-ktx:${AndroidXlibraryVersion.navigation}",
+            // Remotecallback
+            remotecallback                      : "androidx.remotecallback:remotecallback-processor:${AndroidXlibraryVersion.remotecallback}",
+            // SavedState
+            savedstate                          : "androidx.savedstate:savedstate:${AndroidXlibraryVersion.savedstate}",
+            // Security
+            security                            : "androidx.security:security-crypto:${AndroidXlibraryVersion.security}",
+            // ShareTarget
+            sharetarget                         : "androidx.sharetarget:sharetarget:${AndroidXlibraryVersion.sharetarget}",
+            // ViewPager2
+            sharetarget                         : "androidx.viewpager2:viewpager2:${AndroidXlibraryVersion.viewpager2}",
+            // Work
+            work_runtime                        : "androidx.work:work-runtime:${AndroidXlibraryVersion.work}",
+            work_runtime_ktx                    : "androidx.work:work-runtime-ktx:${AndroidXlibraryVersion.work}",
+            work_rxjava2                        : "androidx.work:work-rxjava2:${AndroidXlibraryVersion.work}",
+            work_testing                        : "androidx.work:work-testing:${AndroidXlibraryVersion.work}",
+//            // Test Espresso
+            espresso_contrib                    : "androidx.test.espresso:espresso-contrib:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_core                       : "androidx.test.espresso:espresso-core:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_idling_resource            : "androidx.test.espresso:espresso-idling-resource:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_idling_concurrent          : "androidx.test.espresso.idling:idling-concurrent:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_idling_net                 : "androidx.test.espresso.idling:idling-net:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_accessibility              : "androidx.test.espresso:espresso-accessibility:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_intents                    : "androidx.test.espresso:espresso-intents:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_remote                     : "androidx.test.espresso:espresso-remote:${AndroidXlibraryVersion.espressoVersion}",
+            espresso_web                        : "androidx.test.espresso:espresso-web:${AndroidXlibraryVersion.espressoVersion}",//
+//            // Test
+            test_services                       : "androidx.test:test-services:${AndroidXlibraryVersion.test}",
+//            // Test UIAutomator
+            test_uiautomator                    : "androidx.test.uiautomator:uiautomator:${AndroidXlibraryVersion.test}",
+//            // Test Monitor
+            test_monitor                        : "androidx.test:monitor:${AndroidXlibraryVersion.test}",
+//            // Test Orchestrator
+            test_orchestrator                   : "androidx.test:orchestrator:${AndroidXlibraryVersion.test}",
+//            // Test Rules
+            test_rules                          : "androidx.test:rules:${AndroidXlibraryVersion.test}",
+//            // Test Runner
+            test_runner                         : "androidx.test:runner:${AndroidXlibraryVersion.test}",
+//            // Test Jank
+            test_janktesthelper                 : "androidx.test.jank:janktesthelper:${AndroidXlibraryVersion.test}"
+    ]
+
+    dependenciesSupportList = [
+            // Arch
+            arch_core                  : "android.arch.core:core${Supportlibraryversion.archCore}",
+            arch_core_common           : "android.arch.core:common:${Supportlibraryversion.archCore}",
+            arch_core_testing          : "android.arch.core:core-testing:${Supportlibraryversion.archCore}",
+            arch_core_runtime          : "android.arch.core:runtime:${Supportlibraryversion.archCore}",
+// Compat Core
+            compat_core                : "com.android.support:support-compat:${Supportlibraryversion.supportLibVersion}",
+// Lifecycle
+            lifecycle_common           : "android.arch.lifecycle:common:${Supportlibraryversion.archlifecycle}",
+            lifecycle_common_java8     : "android.arch.lifecycle:common-java8:${Supportlibraryversion.archlifecycle}",
+            lifecycle_compiler         : "android.arch.lifecycle:compiler:${Supportlibraryversion.archlifecycle}",
+            lifecycle_extensions       : "android.arch.lifecycle:extensions:${Supportlibraryversion.archlifecycle}",
+            lifecycle_livedata         : "android.arch.lifecycle:livedata:${Supportlibraryversion.archlifecycle}",
+            lifecycle_livedata_core    : "android.arch.lifecycle:livedata-core:${Supportlibraryversion.archlifecycle}",
+            lifecycle_reactivestreams  : "android.arch.lifecycle:reactivestreams:${Supportlibraryversion.archlifecycle}",
+            lifecycle_runtime          : "android.arch.lifecycle:runtime:${Supportlibraryversion.archlifecycle}",
+            lifecycle_viewmodel        : "android.arch.lifecycle:viewmodel:${Supportlibraryversion.archlifecycle}",
+//            // Paging
+            paging_common              : "android.arch.paging:common:${Supportlibraryversion.archPaging}",
+            paging_runtime             : "android.arch.paging:runtime:${Supportlibraryversion.archPaging}",
+            paging_rxjava2             : "android.arch.paging:rxjava2:${Supportlibraryversion.archPaging}",
+//            // Room
+            room_common                : "android.arch.persistence.room:common:${Supportlibraryversion.archPersistence}",
+            room_compiler              : "android.arch.persistence.room:compiler:${Supportlibraryversion.archPersistence}",
+            room_guava                 : "android.arch.persistence.room:guava:${Supportlibraryversion.archPersistence}",
+            room_migration             : "android.arch.persistence.room:migration:${Supportlibraryversion.archPersistence}",
+            room_runtime               : "android.arch.persistence.room:runtime:${Supportlibraryversion.archPersistence}",
+            room_rxjava2               : "android.arch.persistence.room:rxjava2:${Supportlibraryversion.archPersistence}",
+            room_testing               : "android.arch.persistence.room:testing:${Supportlibraryversion.archPersistence}",
+//            // SQLite
+            sqlite                     : "android.arch.persistence:db:${Supportlibraryversion.archPersistence}",
+            sqlite_framework           : "android.arch.persistence:db-frameworkk:${Supportlibraryversion.archPersistence}",
+            sqlcipher                  : "android.arch.persistence.db.sqlcipher:sqlbrite-sqlcipher-integration:${Supportlibraryversion.archDB}",
+            sqlite_wcdb                : "android.arch.persistence.db.wcdb:sqlbrite-wcdb-integration:${Supportlibraryversion.archDB}",
+//            // ConstraintLayout
+            constraintlayout           : "com.android.support.constraint:constraint-layout:${Supportlibraryversion.constraintLayout}",
+            constraintlayout_solver    : "com.android.support.constraint:constraint-layout-solver:${Supportlibraryversion.constraintLayout}",
+//            // VectorDrawable
+            vectordrawable             : "com.android.support:support-vector-drawable:${Supportlibraryversion.supportLibVersion}",
+            vectordrawable_animated    : "com.android.support:animated-vector-drawable:${Supportlibraryversion.supportLibVersion}",
+//            // Appcompat
+            appcompat                  : "com.android.support:appcompat-v7:${Supportlibraryversion.supportLibVersion}",
+//            // AsyncLayoutInflater
+            asynclayoutinflater        : "com.android.support:asynclayoutinflater:${Supportlibraryversion.supportLibVersion}",
+//            // CardView
+            cardview                   : "com.android.support:cardview-v7:${Supportlibraryversion.supportLibVersion}",
+//            // Collection
+            collection                 : "com.android.support:collection:${Supportlibraryversion.supportLibVersion}",
+//            // CoordinatorLayout
+            coordinatorlayout          : "com.android.support:coordinatorlayout:${Supportlibraryversion.supportLibVersion}",
+//            // CursorAdapter
+            cursoradapter              : "com.android.support:cursoradapter:${Supportlibraryversion.supportLibVersion}",
+//            // Browser
+            browser                    : "com.android.support:customtabs:${Supportlibraryversion.supportLibVersion}",
+//            // CustomView
+            customview                 : "com.android.support:customview:${Supportlibraryversion.supportLibVersion}",
+//            // DocumentFile
+            documentfile               : "com.android.support:documentfile:${Supportlibraryversion.supportLibVersion}",
+//            // DrawerLayout
+            drawerlayout               : "com.android.support:drawerlayout:${Supportlibraryversion.supportLibVersion}",
+//            // ExifInterface
+            exifinterface              : "com.android.support:exifinterface:${Supportlibraryversion.supportLibVersion}",
+//            // GridLayout
+            gridlayout                 : "com.android.support:gridlayout-v7:${Supportlibraryversion.supportLibVersion}",
+//            // HeifWriter
+            heifwriter                 : "com.android.support:heifwriter:${Supportlibraryversion.supportLibVersion}",
+//            // Interpolator
+            interpolator               : "com.android.support:interpolator:${Supportlibraryversion.supportLibVersion}",
+//            // LeanBack
+            leanback                   : "com.android.support:leanback-v17:${Supportlibraryversion.supportLibVersion}",
+            leanback_preference        : "com.android.support:preference-leanback-v17:${Supportlibraryversion.supportLibVersion}",
+//            // Loader
+            loader                     : "com.android.support:loader:${Supportlibraryversion.supportLibVersion}",
+//            // LocalBroadcastManager
+            localbroadcastmanager      : "com.android.support:localbroadcastmanager:${Supportlibraryversion.supportLibVersion}",
+//            // Media2
+            media2                     : "com.android.support:media2:${Supportlibraryversion.supportLibVersion}",
+            media2_exoplayer           : "com.android.support:media2-exoplayer:${Supportlibraryversion.supportLibVersion}",
+//            // MediaRouter
+            mediarouter                : "com.android.support:mediarouter-v7:${Supportlibraryversion.supportLibVersion}",
+//            // MultiDex
+            multidex                   : "com.android.support:multidex:${Supportlibraryversion.multiDex}",
+            multidex_instrumentation   : "com.android.support:multidex-instrumentation:${Supportlibraryversion.multiDex}",
+//            // Palette
+            palette                    : "com.android.support:palette-v7:${Supportlibraryversion.supportLibVersion}",
+//            // PercentLayout
+            percentlayout              : "com.android.support:percent:${Supportlibraryversion.supportLibVersion}",
+//            // Preference
+            preference                 : "com.android.support:preference-v7:${Supportlibraryversion.supportLibVersion}",
+//            // Print
+            print                      : "com.android.support:print:${Supportlibraryversion.supportLibVersion}",
+//            // Recommendation
+            recommendation             : "com.android.support:recommendation:${Supportlibraryversion.supportLibVersion}",
+//            // Recyclerview
+            recyclerview               : "com.android.support:recyclerview-v7:${Supportlibraryversion.supportLibVersion}",
+            recyclerview_selection     : "com.android.support:recyclerview-selection:${Supportlibraryversion.supportLibVersion}",
+//            // Slice
+            slice_core                 : "com.android.support:slice-core:${Supportlibraryversion.supportLibVersion}",
+            slice_builders             : "com.android.support:slice-builders:${Supportlibraryversion.supportLibVersion}",
+            slice_view                 : "com.android.support:slice-view:${Supportlibraryversion.supportLibVersion}",
+//            // SlidingpaneLayout
+            slidingpanelayout          : "com.android.support:slidingpanelayout:${Supportlibraryversion.supportLibVersion}",
+//            // Annotation
+            annotation                 : "com.android.support:support-annotations:${Supportlibraryversion.supportLibVersion}",
+//            // ContentPager
+            contentpager               : "com.android.support:support-content:${Supportlibraryversion.supportLibVersion}",
+//            // Legacy
+            legacy_support_v4          : "com.android.support:support-v4:${Supportlibraryversion.supportLibVersion}",
+            legacy_support_v13         : "com.android.support:support-v13:${Supportlibraryversion.supportLibVersion}",
+            legacy_preference_v14      : "com.android.support:preference-v14:${Supportlibraryversion.supportLibVersion}",
+            legacy_support_core_ui     : "com.android.support:support-core-ui:${Supportlibraryversion.supportLibVersion}",
+            legacy_support_core_utils  : "com.android.support:support-core-utils:${Supportlibraryversion.supportLibVersion}",
+
+//            // Dynamicanimation
+            dynamicanimation           : "com.android.support:support-dynamic-animation:${Supportlibraryversion.supportLibVersion}",
+//            // Emoji
+            emoji                      : "com.android.support:support-emoji:${Supportlibraryversion.supportLibVersion}",
+            emoji_appcompat            : "com.android.support:support-emoji-appcompat:${Supportlibraryversion.supportLibVersion}",
+            emoji_bundled              : "com.android.support:support-emoji-bundled:${Supportlibraryversion.supportLibVersion}",
+
+//            // Fragment
+            fragment                   : "com.android.support:support-fragment:${Supportlibraryversion.supportLibVersion}",
+//            // media
+            media                      : "com.android.support:support-media-compat:${Supportlibraryversion.supportLibVersion}",
+//            // TVProvider
+            tvprovider                 : "com.android.support:support-tv-provider:${Supportlibraryversion.supportLibVersion}",//
+//            // SwiperefreshLayout
+            swiperefreshlayout         : "com.android.support:swiperefreshlayout:${Supportlibraryversion.supportLibVersion}",
+//            // Textclassifier
+            textclassifier             : "com.android.support:textclassifier:${Supportlibraryversion.supportLibVersion}",
+//            // Transition
+            transition                 : "com.android.support:transition:${Supportlibraryversion.supportLibVersion}",
+//            // VersionEdparcelable
+            versionedparcelable        : "com.android.support:versionedparcelable:${Supportlibraryversion.supportLibVersion}",
+//            // Viewpager
+            viewpager                  : "com.android.support:viewpager:${Supportlibraryversion.supportLibVersion}",
+//            // Wear
+            wear                       : "com.android.support:wear:${Supportlibraryversion.supportLibVersion}",
+//            // Webkit
+            webkit                     : "com.android.support:webkit:${Supportlibraryversion.supportLibVersion}",
+//            // Car
+            car                        : "com.android.support:car:${Supportlibraryversion.supportLibVersion}",
+//            // Material
+            material                   : "com.android.support:design:${Supportlibraryversion.supportLibVersion}",
+            // Navigation
+            navigation_fragment        : "android.arch.navigation:navigation-fragment:${Supportlibraryversion.archNavigation}",
+            navigation_ui              : "android.arch.navigation:navigation-ui:${Supportlibraryversion.archNavigation}",
+            navigation_common          : "android.arch.navigation:navigation-common:${Supportlibraryversion.archNavigation}",
+            navigation_runtime         : "android.arch.navigation:navigation-runtime:${Supportlibraryversion.archNavigation}",
+            navigation_fragment_ktx    : "android.arch.navigation:navigation-fragment-ktx:${Supportlibraryversion.archNavigation}",
+            navigation_ui_ktx          : "android.arch.navigation:navigation-ui-ktx:${Supportlibraryversion.archNavigation}",
+            navigation_common_ktx      : "android.arch.navigation:navigation-common-ktx:${Supportlibraryversion.archNavigation}",
+            navigation_runtime_ktx     : "android.arch.navigation:navigation-runtime-ktx:${Supportlibraryversion.archNavigation}",
+
+            // databinding
+            databinding_baseLibrary    : 'com.android.databinding:baseLibrary:2.3.0',
+            databinding_library        : "com.android.databinding:library:${Supportlibraryversion.databinding}",
+            databinding_runtime        : "com.android.databinding:databinding-runtime:${Supportlibraryversion.databinding}",
+            databinding_adapters       : "com.android.databinding:adapters:${Supportlibraryversion.databinding}",
+            databinding_compiler       : 'com.android.databinding:compiler:2.3.0',
+            databinding_compiler_common: 'com.android.databinding:compilerCommon:2.3.0',
+            //            // Test Espresso
+            espresso_contrib           : "com.android.support.test.espresso:espresso-contrib:${Supportlibraryversion.espressoVersion}",
+            espresso_core              : "com.android.support.test.espresso:espresso-core:${Supportlibraryversion.espressoVersion}",
+            espresso_idling_resource   : "com.android.support.test.espresso:espresso-idling-resource:${Supportlibraryversion.espressoVersion}",
+            espresso_idling_concurrent : "com.android.support.test.espresso.idling:idling-concurrent:${Supportlibraryversion.espressoVersion}",
+            espresso_idling_net        : "com.android.support.test.espresso.idling:idling-net:${Supportlibraryversion.espressoVersion}",
+            espresso_accessibility     : "com.android.support.test.espresso:espresso-accessibilityy:${Supportlibraryversion.espressoVersion}",
+            espresso_intents           : "com.android.support.test.espresso:espresso-intents:${Supportlibraryversion.espressoVersion}",
+            espresso_remote            : "com.android.support.test.espresso:espresso-remote:${Supportlibraryversion.espressoVersion}",
+            espresso_web               : "com.android.support.test.espresso:espresso-web:${Supportlibraryversion.espressoVersion}",//
+//            // Test
+            test_services              : "com.android.support.test.services:test-services:${Supportlibraryversion.testRunnerVersion}",
+//            // Test UIAutomator
+            test_uiautomator           : "com.android.support.test.uiautomator:uiautomator:${Supportlibraryversion.testRunnerVersion}",
+//            // Test Monitor
+            test_monitor               : "com.android.support.test:monitor:${Supportlibraryversion.testRunnerVersion}",
+//            // Test Orchestrator
+            test_orchestrator          : "com.android.support.test:orchestrator:${Supportlibraryversion.testRunnerVersion}",
+//            // Test Rules
+            test_rules                 : "com.android.support.test:rules:${Supportlibraryversion.testRunnerVersion}",
+//            // Test Runner
+            test_runner                : "com.android.support.test:runner:${Supportlibraryversion.testRunnerVersion}",
+//            // Test Jank
+            test_janktesthelper        : "com.android.support.test.janktesthelper:janktesthelper:${Supportlibraryversion.testRunnerVersion}"
+    ]
+
+    dependenciesGooglePlaytList = [
+            // play services
+            play_services                    : 'com.google.android.gms:play-services:12.0.1',
+            ads_identifier                   : "com.google.android.gms:play-services-ads-identifier:${googlePlayservicesVersion.Supportversion}",
+            basement                         : "com.google.android.gms:play-services-basement:${googlePlayservicesVersion.Supportversion}",
+            google_plus                      : "com.google.android.gms:play-services-plus:${googlePlayservicesVersion.Supportversion}",
+            account_login                    : "com.google.android.gms:play-services-auth:${googlePlayservicesVersion.Supportversion}",
+            action_base_client               : "com.google.android.gms:play-services-base:${googlePlayservicesVersion.Supportversion}",
+            sign_in                          : "com.google.android.gms:play-services-identity:${googlePlayservicesVersion.Supportversion}",
+            analytics                        : "com.google.android.gms:play-services-analytics:${googlePlayservicesVersion.Supportversion}",
+            awareness                        : "com.google.android.gms:play-services-awareness:${googlePlayservicesVersion.Supportversion}",
+            cast                             : "com.google.android.gms:play-services-cast:${googlePlayservicesVersion.Supportversion}",
+            gcm                              : "com.google.android.gms:play-services-gcm:${googlePlayservicesVersion.Supportversion}",
+            drive                            : "com.google.android.gms:play-services-drive:${googlePlayservicesVersion.Supportversion}",
+            fit                              : "com.google.android.gms:play-services-fitness:${googlePlayservicesVersion.Supportversion}",
+            maps                             : "com.google.android.gms:play-services-maps:${googlePlayservicesVersion.Supportversion}",
+            location_and_activity_recognition: "com.google.android.gms:play-services-location:${googlePlayservicesVersion.Supportversion}",
+            ads                              : "com.google.android.gms:play-services-ads:${googlePlayservicesVersion.extraversion}",
+            vision                           : "com.google.android.gms:play-services-vision:${googlePlayservicesVersion.Supportversion}",
+            nearby                           : "com.google.android.gms:play-services-nearby:${googlePlayservicesVersion.Supportversion}",
+            panoramaViewer                   : "com.google.android.gms:play-services-panorama:${googlePlayservicesVersion.Supportversion}",
+            game                             : "com.google.android.gms:play-services-games:${googlePlayservicesVersion.extraversion}",
+            safetyNet                        : "com.google.android.gms:play-services-safetynet:${googlePlayservicesVersion.Supportversion}",
+            pay                              : "com.google.android.gms:play-services-wallet:${googlePlayservicesVersion.Supportversion}",
+            tasks                            : "com.google.android.gms:play-services-tasks:${googlePlayservicesVersion.Supportversion}",
+            places                           : "com.google.android.gms:play-services-places:${googlePlayservicesVersion.Supportversion}",
+            tagManager                       : "com.google.android.gms:play-services-tagmanager:${googlePlayservicesVersion.Supportversion}",
+            measurement                      : "com.google.android.gms:play-services-measurement:${googlePlayservicesVersion.Supportversion}",
+            wear                             : "com.google.android.gms:play-services-wearable:${googlePlayservicesVersion.Supportversion}"
+    ]
+
+    dependenciesFirebaseList = [
+            // Firebase
+            admob                        : "com.google.firebase:firebase-ads:${FirebaseVersion.admob}",
+            analytics                    : "com.google.firebase:firebase-core:${FirebaseVersion.analytics}",
+            appindexing                  : "com.google.firebase:firebase-appindexing:${FirebaseVersion.appindexing}",
+            authentication               : "com.google.firebase:firebase-auth:${FirebaseVersion.authentication}",
+            firestore                    : "com.google.firebase:firebase-firestore:${FirebaseVersion.firestore}",
+            functions_for_firebase_client: "com.google.firebase:firebase-functions:${FirebaseVersion.functions_for_firebase_client}",
+            messaging                    : "com.google.firebase:firebase-messaging:${FirebaseVersion.messaging}",
+            cloud_storage                : "com.google.firebase:firebase-storage:${FirebaseVersion.cloud_storage}",
+            firebaseCrash                : "com.google.firebase:firebase-crash:${FirebaseVersion.firebaseCrash}",
+            crashlytics                  : "com.crashlytics.sdk.android:crashlytics:${FirebaseVersion.crashlytics}",
+            dynamic_links                : "com.google.firebase:firebase-dynamic-links:${FirebaseVersion.dynamic_links}",
+            In_App_Messaging             : "com.google.firebase:firebase-inappmessaging:${FirebaseVersion.In_App_Messaging}",
+            In_App_Messaging_Display     : "com.google.firebase:firebase-inappmessaging-display:${FirebaseVersion.In_App_Messaging_Display}",
+            vision                       : "com.google.firebase:firebase-ml-vision:${FirebaseVersion.vision}",
+            image_labeling_model         : "com.google.firebase:firebase-ml-vision-image-label-model:${FirebaseVersion.image_labeling_model}",
+            Face_Detection               : "com.google.firebase:firebase-ml-vision-face-model:${FirebaseVersion.Face_Detection}",
+            Detection_and_Tracking       : "com.google.firebase:firebase-ml-vision-object-detection-model:${FirebaseVersion.Detection_and_Tracking}",
+            Natural_Language             : "com.google.firebase:firebase-ml-natural-language:${FirebaseVersion.Natural_Language}",
+            Language_Identification      : "com.google.firebase:firebase-ml-natural-language-language-id-model:${FirebaseVersion.Language_Identification}",
+            Translate                    : "com.google.firebase:firebase-ml-natural-language-translate-model:${FirebaseVersion.Translate}",
+            Smart_Reply                  : "com.google.firebase:firebase-ml-natural-language-smart-reply-model:${FirebaseVersion.Smart_Reply}",
+            Custom_Model                 : "com.google.firebase:firebase-ml-model-interpreter:${FirebaseVersion.Custom_Model}",
+            AutoML_Vision_Edge           : "com.google.firebase:firebase-ml-vision-automl:${FirebaseVersion.AutoML_Vision_Edge}",
+            performance_Monitoring       : "com.google.firebase:firebase-perf:${FirebaseVersion.performance_Monitoring}",
+            Realtime_Database            : "com.google.firebase:firebase-database:${FirebaseVersion.Realtime_Database}",
+            Remote_Config                : "com.google.firebase:firebase-config:${FirebaseVersion.Remote_Config}"
+    ]
+
+    wearDependencies = [
+            googleWearable       : "com.google.android.wearable:wearable:${wearVersion.wearable}",
+            supportGoogleWearable: "com.google.android.support:wearable:${wearVersion.wearable}"
+    ]
+
+    KotlinDependenciesList = [
+            std_jdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KotlinVersions.kotlin}",
+            std_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${KotlinVersions.kotlin}",
+    ]
+
+    MapboxdependenciesList = [
+//          //Mapbox
+            mapboxSdk                  : "com.mapbox.mapboxsdk:mapbox-android-sdk:${mapboxVersion.mapboxSdk}",
+            mapboxTurf                 : "com.mapbox.mapboxsdk:mapbox-sdk-turf:${mapboxVersion.mapboxTurf}",
+            mapboxServices             : "com.mapbox.mapboxsdk:mapbox-sdk-services:${mapboxVersion.mapboxServices}",
+            mapboxAndroidServices      : "com.mapbox.mapboxsdk:mapbox-android-services:${mapboxVersion.mapboxAndroidServices}",
+            mapboxJavaServices         : "com.mapbox.mapboxsdk:'mapbox-java-services:${mapboxVersion.mapboxJavaServices}",
+            mapboxGeoJson              : "com.mapbox.mapboxsdk:mapbox-sdk-geojson:${mapboxVersion.mapboxGeoJson}",
+            mapboxAndroidGeoJson       : "com.mapbox.mapboxsdk:mapbox-android-plugin-geojson:${mapboxVersion.mapboxAndroidGeoJson}",
+            mapboxJavaGeoJson          : "com.mapbox.mapboxsdk:mapbox-java-geojson:${mapboxVersion.mapboxJavaGeoJson}",
+            mapboxEvents               : "com.mapbox.mapboxsdk:mapbox-android-telemetry:${mapboxVersion.mapboxEvents}",
+
+            mapboxTelemetry            : "com.mapbox.navigator:mapbox-android-telemetry:${mapboxVersion.mapboxTelemetry}",
+            mapboxTelemetryLite        : "com.mapbox.navigator:mapbox-android-telemetry-lite:${mapboxVersion.mapboxTelemetryLite}",
+
+            mapboxNavigator            : "com.mapbox.navigator:mapbox-navigation-native:${mapboxVersion.mapboxNavigator}",
+            mapboxAndroidNavigator     : "com.mapbox.navigator:mapbox-android-navigation:${mapboxVersion.mapboxAndroidNavigator}",
+            mapboxAndroidNavigatorUI   : "com.mapbox.navigator:mapbox-android-ui:${mapboxVersion.mapboxAndroidNavigatorUI}",
+
+            mapboxAndroidUI            : "com.mapbox.navigator:mapbox-android-accounts:${mapboxVersion.mapboxAndroidUI}",
+            mapboxAndroidAccount       : "com.mapbox.navigator:mapbox-android-accounts:${mapboxVersion.mapboxAndroidGestures}",
+
+            mapboxAndroidGestures      : "com.mapbox.navigator:mapbox-android-gestures:${mapboxVersion.mapboxAndroidGestures}",
+
+            mapboxSearch               : "com.mapbox.mapboxsdk:mapbox-search-android:${mapboxVersion.mapboxSearch}",
+            mapbox_vision_core         : "com.mapbox.vision:mapbox-android-vision-core:${mapboxVersion.vision_core}",
+            mapbox_core                : "com.mapbox.mapboxsdk:mapbox-android-core:${mapboxVersion.mapbox_core}",
+            mapbox_sdk_core            : "com.mapbox.mapboxsdk:mapbox-sdk-core:${mapboxVersion.mapbox_core}",
+
+            mapboxAndroid_cluster_utils: 'com.mapbox.mapboxsdk:mapbox-android-plugin-cluster-utils:0.4.0',
+
+            mapboxndroid_directions    : 'com.mapbox.mapboxsdk:mapbox-android-directions:1.0.0',
+            mapboxndroid_geocoder      : 'com.mapbox.mapboxsdk:mapbox-android-geocoder:1.0.0',
+//          // Mapbox plugins
+            mapboxChina                : "com.mapbox.mapboxsdk:mapbox-android-plugin-china:${mapboxVersion.mapboxChina}",
+            mapboxLocationlayer        : "com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:${mapboxVersion.mapboxLocationlayer}",
+            mapboxAnnotation           : "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation:${mapboxVersion.mapboxAnnotation}",
+            mapboxBuilding             : "com.mapbox.mapboxsdk:mapbox-android-plugin-building:${mapboxVersion.mapboxBuilding}",
+            mapboxPlaces               : "com.mapbox.mapboxsdk:mapbox-android-plugin-places:${mapboxVersion.mapboxPlaces}",
+            mapboxLocalization         : "com.mapbox.mapboxsdk:mapbox-android-plugin-localization:${mapboxVersion.mapboxLocalization}",
+            mapboxTraffic              : "com.mapbox.mapboxsdk:mapbox-android-plugin-traffic:${mapboxVersion.mapboxTraffic}",
+            mapboxMarkerView           : "com.mapbox.mapboxsdk:mapbox-android-plugin-markerview:${mapboxVersion.mapboxMarkerView}",
+            mapboxOffline              : "com.mapbox.mapboxsdk:mapbox-android-plugin-offline:${mapboxVersion.mapboxOffline}",
+
+            mapboxAnnotation_v7        : "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxAnnotation_v7}",
+            mapboxBuilding_v7          : "com.mapbox.mapboxsdk:mapbox-android-plugin-building-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxBuilding_v7}",
+            mapboxPlaces_v7            : "com.mapbox.mapboxsdk:mapbox-android-plugin-places-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxPlaces_v7}",
+            mapboxLocalization_v7      : "com.mapbox.mapboxsdk:mapbox-android-plugin-localization-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxLocalization_v7}",
+            mapboxTraffic_v7           : "com.mapbox.mapboxsdk:mapbox-android-plugin-traffic-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxTraffic_v7}",
+            mapboxMarkerView_v7        : "com.mapbox.mapboxsdk:mapbox-android-plugin-markerview-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxMarkerView_v7}",
+            mapboxOffline_v7           : "com.mapbox.mapboxsdk:mapbox-android-plugin-offline-${mapboxVersion.mapboxMapPrefix_v7}:${mapboxVersion.mapboxOffline_v7}",
+            mapboxAnnotation_v8        : "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxAnnotation_v8}",
+            mapboxBuilding_v8          : "com.mapbox.mapboxsdk:mapbox-android-plugin-building-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxBuilding_v8}",
+            mapboxLocalization_v8      : "com.mapbox.mapboxsdk:mapbox-android-plugin-localization-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxLocalization_v8}",
+            mapboxTraffic_v8           : "com.mapbox.mapboxsdk:mapbox-android-plugin-traffic-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxTraffic_v8}",
+            mapboxOffline_v8           : "com.mapbox.mapboxsdk:mapbox-android-plugin-offline-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxOffline_v8}",
+            mapboxScalebar_v8          : "com.mapbox.mapboxsdk:mapbox-android-plugin-scalebar-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxScalebar_v8}",
+            mapboxMarkerView_v8        : "com.mapbox.mapboxsdk:mapbox-android-plugin-markerview-${mapboxVersion.mapboxMapPrefix_v8}:${mapboxVersion.mapboxMarkerView_v8}"
+    ]
+
+    SquaredependenciesList = [
+            okhttp3              : "com.squareup.okhttp3:okhttp:${SquarevicesVersion.okhttp3}",
+            okhttp3Logging       : "com.squareup.okhttp3:logging-interceptor:${SquarevicesVersion.okhttp3}",
+            okhttp3Mockwebserver : "com.squareup.okhttp3:mockwebserver:${SquarevicesVersion.okhttp3}",
+            retrofit             : "com.squareup.retrofit2:retrofit:${SquarevicesVersion.retrofit}",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${SquarevicesVersion.retrofit}",
+            retrofit2scalars     : "com.squareup.retrofit2:converter-scalars:${SquarevicesVersion.retrofit}",
+            picasso              : "com.squareup.picasso:picasso:${SquarevicesVersion.picasso}",
+
+            timber               : "com.jakewharton.timber:timber:${SquarevicesVersion.timber}",
+            leakCanaryDebug      : "com.squareup.leakcanary:leakcanary-android:${SquarevicesVersion.leakCanary}",
+            leakCanaryRelese       : "com.squareup.leakcanary:leakcanary-android-no-op:${SquarevicesVersion.leakCanary}"
+    ]
+
+    dependenciesList = [
+//            // gson
+gson                  : 'com.google.code.gson:gson:2.8.5',
+
+//            // Other
+segmentAnalytics      : 'com.segment.analytics.java:analytics:2.0.0',
+materialStyleDialog   : 'com.github.javiersantos:MaterialStyledDialogs:2.1',
+cuttaGifView          : 'com.github.Cutta:GifView:1.1',
+baseFab               : 'com.getbase:floatingactionbutton:1.10.1',
+materialDialogsCommons: 'com.afollestad.material-dialogs:commons:0.9.6.0'
+//
+//            ankoCommon              : "org.jetbrains.anko:anko-common:${version.ankoCommon}",
+//
+//            // AutoValue
+//            autoValue               : "com.google.auto.value:auto-value:${version.autoValue}",
+//            autoValueGson           : "com.ryanharter.auto.value:auto-value-gson:${version.autoValueGson}",
+//            autoValuesParcel        : "com.ryanharter.auto.value:auto-value-parcel:${version.autoValueParcel}",
+//            autoValuesParcelAdapter : "com.ryanharter.auto.value:auto-value-parcel-adapter:${version.autoValueParcel}",
+//            // instrumentation test
+//            testRunner              : "com.android.support.test:runner:${version.testRunnerVersion}",
+//            testRules               : "com.android.support.test:rules:${version.testRunnerVersion}",
+//            testEspressoCore        : "com.android.support.test.espresso:espresso-core:${version.espressoVersion}",
+//            testEspressoContrib     : "com.android.support.test.espresso:espresso-contrib:${version.espressoVersion}",
+//            testEspressoIntents     : "com.android.support.test.espresso:espresso-intents:${version.espressoVersion}",
+//            testSpoonRunner         : "com.squareup.spoon:spoon-client:${version.spoonRunner}",
+//            testRoom                : "android.arch.persistence.room:testing:${version.room}",
+//            testArchCore            : "android.arch.core:core-testing:${version.androidArchCore}",
+//            // unit test
+//            junit                   : "junit:junit:${version.junit}",
+//
+//
+//            robolectric             : "org.robolectric:robolectric:${version.robolectric}",
+//
+//
+//
+//            mockito                 : "org.mockito:mockito-core:${version.mockito}",
+//
+////            mockito                : "org.mockito:mockito-inline:${version.mockito}",
+//            androidArchCore         : "android.arch.core:core-testing:${version.androidArchCore}",
+//
+//            mockitoCore             : "org.mockito:mockito-core:${version.mockito}",
+//            mockitoAndroid          : "org.mockito:mockito-android:${version.mockito}",
+//            commonsIO               : "commons-io:commons-io:${version.commonsIO}",
+//
+//            assertJ                 : "org.assertj:assertj-core:${version.assertJ}",
+//            hamcrest                : "org.hamcrest:hamcrest-junit:${version.hamcrest}",
+//            hamcrestJunit           : "org.hamcrest:hamcrest-junit:${version.hamcrest}",
+//            // butterknife
+//            butterKnife             : "com.jakewharton:butterknife:${version.butterknife}",
+//            butterKnifeProcessor    : "com.jakewharton:butterknife-compiler:${version.butterknife}",
+//
+//            errorprone              : "com.google.errorprone:error_prone_core:${version.errorprone}"
+    ]
+}

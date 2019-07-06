@@ -1,0 +1,46 @@
+//GoogleMap
+
+include ':Java_Version'
+project(":Java_Version").projectDir = file("./Map/AndroidJava")
+
+include ':CurrentPlaceDetailsOnMap'
+project(":CurrentPlaceDetailsOnMap").projectDir = file("./Map/CurrentPlaceDetailsOnMap")
+
+include ':MapWithMarker'
+project(":MapWithMarker").projectDir = file("./Map/MapWithMarker")
+
+include ':Polygons'
+project(":Polygons").projectDir = file("./Map/Polygons")
+
+include ':StyledMap'
+project(":StyledMap").projectDir = file("./Map/StyledMap")
+
+include ':MapsUtilsDemo'
+project(":MapsUtilsDemo").projectDir = file("./Map/MapsUtilsDemo")
+
+include ':MapsUtilslibrary'
+project(":MapsUtilslibrary").projectDir = file("./Map/MapsUtilslibrary")
+
+include ':Kotlin_Version'
+project(":Kotlin_Version").projectDir = file("./Map/AndroidKotlin")
+
+include ':WearOS_Wearable'
+project(":WearOS_Wearable").projectDir = file("./Map/WearOS_Wearable")
+
+//def mapProjectRoot = rootProject.projectDir.parentFile.toPath()
+//
+//def plugins = new Properties()
+//
+//plugins.each { name, path ->
+//    def pluginDirectory = mapProjectRoot.resolve(path).resolve('MapBox').toFile()
+//    include ":$name"
+//    project(":$name").projectDir = pluginDirectory
+//}
+//include':MapboxAndroidDemo'
+//project(':MapboxAndroidDemo').projectDir = new File(rootDir, 'MapBox/mapbox-android-demo/MapboxAndroidDemo')
+//
+//include':MapboxAndroidWearDemo'
+//project(':MapboxAndroidWearDemo').projectDir = new File(rootDir, 'MapBox/mapbox-android-demo/MapboxAndroidWearDemo')
+//
+//include':SharedCode'
+//project(':SharedCode').projectDir = new File(rootDir, 'MapBox/mapbox-android-demo/SharedCode')

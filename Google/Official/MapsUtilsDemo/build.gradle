@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion androidSDKVersions.compileSdkVersion
+    buildToolsVersion androidSDKVersions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidSDKVersions.minSdkVersion
+        targetSdkVersion androidSDKVersions.targetSdkVersion
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+        }
+    }
+}
+
+dependencies {
+    implementation dependenciesGooglePlayList.maps
+    implementation project(path: ':MapsUtilslibrary')
+    // Or, fetch from Maven:
+    // implementation 'com.google.maps.android:android-maps-utils:0.3+'
+}
+
+task startDemo(type: Exec) {
+    dependsOn 'installDebug'
+    def adb = new File("${System.env.ANDROID_HOME}", "platform-tools${File.separator}adb")
+    commandLine adb, "shell", "am", "start", "-n", "com.google.maps.android.utils.demo/.MainActivity"
+}
+apply from: "${rootDir}/gradle/dependencies_google.gradle"

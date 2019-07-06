@@ -1,0 +1,38 @@
+def mapProjectRoot = rootProject.projectDir.parentFile.toPath()
+println 'mapProjectRoot : '+mapProjectRoot
+
+//GoogleMap
+include ':Java_Version'
+project(":Java_Version").projectDir = file("./Google/Official/AndroidJava")
+
+include ':CurrentPlaceDetailsOnMap'
+project(":CurrentPlaceDetailsOnMap").projectDir = file("./Google/Official/CurrentPlaceDetailsOnMap")
+
+include ':MapWithMarker'
+project(":MapWithMarker").projectDir = file("./Google/Official/MapWithMarker")
+
+include ':Polygons'
+project(":Polygons").projectDir = file("./Google/Official/Polygons")
+
+include ':StyledMap'
+project(":StyledMap").projectDir = file("./Google/Official/StyledMap")
+
+include ':MapsUtilsDemo'
+project(":MapsUtilsDemo").projectDir = file("./Google/Official/MapsUtilsDemo")
+
+include ':MapsUtilslibrary'
+project(":MapsUtilslibrary").projectDir = file("./Google/Official/MapsUtilslibrary")
+
+include ':Kotlin_Version'
+project(":Kotlin_Version").projectDir = file("./Google/Official/AndroidKotlin")
+
+include ':WearOS_Wearable'
+project(":WearOS_Wearable").projectDir = file("./Google/Official/WearOS_Wearable")
+
+//def plugins = new Properties()
+//
+//plugins.each { name, path ->
+//    def pluginDirectory = mapProjectRoot.resolve(path).resolve('MapBox').toFile()
+//    include ":$name"
+//    project(":$name").projectDir = pluginDirectory
+//}

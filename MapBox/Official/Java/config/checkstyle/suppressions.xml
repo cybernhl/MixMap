@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+  "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+  "http://checkstyle.sourceforge.net/dtds/suppressions_1_1.dtd">
+
+
+<suppressions>
+  <!-- For our tests we do not demand API documentation. -->
+
+
+  <suppress checks="MagicNumber" files="com[\\/]mapbox[\\/]samples[\\/].*IT.java"/>
+  <suppress checks="MagicNumber" files="com[\\/]mapbox[\\/]samples[\\/].*IT.java"/>
+
+  <suppress checks="^[a-z][a-z0-9][a-zA-Z0-9]*$" files="[\\/]TurfMeasurement.java$"/>
+  <suppress checks="MagicNumber" files="[\\/]TurfHelpers.java$"/>
+  <suppress checks="MagicNumber" files=".*[\\/]src[\\/](test|it)[\\/]"/>
+  <suppress checks="WriteTag" files=".*[\\/]src[\\/](test|it)[\\/]"/>
+</suppressions>

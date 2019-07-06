@@ -1,0 +1,83 @@
+version: 2
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build
+      - release
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+      - image: mbgl/android-ndk-r19:8e91a7ebab
+    environment:
+      JVM_OPTS: -Xmx3200m
+      BUILDTYPE: Debug
+      IS_LOCAL_DEVELOPMENT: false
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}
+      - run:
+          name: Check Java code style
+          command: make checkstyle
+      - run:
+          name: Jacoco test report
+          command: ./gradlew jacocoTestReport
+      - run:
+          name: Run unit-test for all modules
+          command: make test
+      - run:
+          name: SonarQube upload
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            make sonarqube ;
+            fi
+      - store_artifacts:
+          path: mapbox/app/build/reports
+          destination: reports
+      - store_test_results:
+          path: mapbox/app/build/test-results    
+      - run:
+          name: Post code coverage report to Codecov.io
+          command: |
+            bash <(curl -s https://codecov.io/bash)
+
+
+# ------------------------------------------------------------------------------
+  release:
+    branch:
+      only:
+      - master
+    docker:
+      - image: mbgl/android-ndk-r19:8e91a7ebab
+    working_directory: ~/code
+    environment:
+    environment:
+      BUILDTYPE: Release
+      IS_LOCAL_DEVELOPMENT: false
+    steps:
+      - checkout
+      - run:
+          name: Generate Maven credentials
+          shell: /bin/bash -euo pipefail
+          command: |
+            aws s3 cp s3://mapbox/android/signing-credentials/secring.gpg secring.gpg
+            echo "NEXUS_USERNAME=$PUBLISH_NEXUS_USERNAME
+            NEXUS_PASSWORD=$PUBLISH_NEXUS_PASSWORD
+            signing.keyId=$SIGNING_KEYID
+            signing.password=$SIGNING_PASSWORD
+            signing.secretKeyRingFile=../secring.gpg" >> gradle.properties
+      - run:
+          name: Build Java libraries
+          command: make build-release
+      - deploy:
+          name: Publish Java Services To Maven Central
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            make publish ;
+            fi

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".examples.styles.AdjustLayerOpacityActivity">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="41.8362"
+        mapbox:mapbox_cameraTargetLng="-87.6321"
+        mapbox:mapbox_uiCompassMarginTop="75dp"
+        mapbox:mapbox_styleUrl="@string/mapbox_style_light"
+        mapbox:mapbox_cameraZoom="9.5"
+        mapbox:mapbox_cameraZoomMax="13"
+        mapbox:mapbox_cameraZoomMin="7"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingEnd="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingStart="24dp"
+        android:paddingTop="24dp">
+
+        <TextView
+            android:id="@+id/textview_opacity_value"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:text="100%"/>
+
+        <SeekBar
+            android:id="@+id/seek_bar_layer_opacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
